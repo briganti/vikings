@@ -1,0 +1,124 @@
+#popin-creategame {
+    position: fixed;
+    left: calc(50% - 178px);
+    top: calc(50% - 90px);
+    width:356px;
+    height:180px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    h6 {
+        display:block;
+        width: 100%;
+        background-color: #333;
+        font-size: 21px;
+        line-height: 40px;
+        color: #fff;
+        text-indent: 10px;
+    }
+    .content {
+        padding: 20px;
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+        input {
+            display: inline-block;
+            width: 180px;
+        }
+        .error {
+            height: 16px;
+            font-size: 12px;
+            color: red;
+            margin:1em 0;
+        }
+        #popin-creategame-create {
+            float:right;
+        }
+    }
+}
+#popin-waitingplayer {
+    position: fixed;
+    left: calc(50% - 178px);
+    top: calc(50% - 90px);
+    width:356px;
+    height:180px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    h6 {
+        display:block;
+        width: 100%;
+        background-color: #333;
+        font-size: 21px;
+        line-height: 40px;
+        color: #fff;
+        text-indent: 10px;
+    }
+    .content {
+        padding: 20px;
+        text-align:center;
+        #popin-waitingplayer-cancel {
+            margin-top:20px;
+        }
+    }
+}
+
+#popin-viewcard {
+    position: fixed;
+    left: calc(50% - 150px);
+    top: calc(50% - 225px);
+    width:300px;
+    height:450px;
+    .close {
+        position:absolute;
+        top:-2px;
+        right:-2px;
+        display:block;
+        height:32px;
+        width:32px;
+        border:1px solid #fff;
+        @include border-radius(9px);
+        @include background-image(linear-gradient(top, #f00, #900));
+        @include box-shadow(#666 0px 0px 2px 0px);
+        color:#fff;
+        text-align:center;
+        font-family:"Tahoma", Helvetica, sans-serif;
+        line-height:1em;
+        font-size:26px;
+        cursor:pointer;
+    }
+}
+
+#popin-endgame {
+    position: fixed;
+    left: calc(50% - 178px);
+    top: calc(50% - 90px);
+    width:356px;
+    height:180px;
+    display: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    h6 {
+        display:block;
+        width: 100%;
+        background-color: #333;
+        font-size: 21px;
+        line-height: 40px;
+        color: #fff;
+        text-indent: 10px;
+    }
+    .content {
+        padding: 20px;
+        
+    }
+}
+
+#popin-invitation {
+  display:none;
+} 
+
+#popin-endgame {
+  display:none;
+}

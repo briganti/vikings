@@ -1,0 +1,8 @@
+div#popin-creategame
+    h6 Créer une partie
+    div.content
+        label(for="gamename") Nom de la partie :
+        input(type="text", ng-model="game.name", placeholder="#{username}'s game", name="gamename", required, autofocus)
+        p.error
+        button.cancel(ng-click="cancel()") Annuler
+        button#popin-creategame-create(ng-click="ok()") Créer

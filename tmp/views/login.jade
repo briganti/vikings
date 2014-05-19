@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  div#login-banner
+    div
+      h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin tellus!!!!!!
+      p Nulla in elit vitae massa pellentesque mollis bibendum et erat.
+ 
+  div#login-content
+    ul
+      li#tab1.selected Guest
+      li#tab2 Log In
+      li#tab3 Register
+    form#login-guest.selected(action="/login",method="post")
+      fieldset
+        label Pseudo :
+        input#nickname(type="text",name="nickname",placeholder="ton pseudo")
+        p.error= error
+        button(type="submit") Jouer  
+    form#login-login(action="/login",method="post")
+        fieldset
+          label Pseudo :
+          input#lnickname(type="text",name="lnickname",placeholder="ton pseudo")
+          label Mot de passe :
+          input#lpassword(type="text",name="lpassword",placeholder="mot de passe")
+          p.error= error
+          button(type="submit") S'identifier  
+    form#login-register(action="/login",method="post")
+      fieldset
+          label Pseudo :
+          input#rnickname(type="text",name="rnickname",placeholder="ton pseudo")
+          label Email :
+          input#remail(type="text",name="remail",placeholder="email")
+          label Mot de passe :
+          input#rpassword(type="text",name="rpassword",placeholder="mot de passe")
+          p.error= error
+          button(type="submit") S'enregistrer

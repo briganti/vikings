@@ -1,0 +1,66 @@
+#hp-carousel {
+    @include border-radius(8px);
+    height:300px;
+    margin:20px 0;
+    background: url('/img/hp.jpg') center left no-repeat #fff;
+    background-size:50% auto;
+    background-clip: padding-box;
+    border:1px solid rgba(255,255,255,.3);
+    &>div {
+        position:relative;
+        left:50%;
+        width:50%;
+        height:100%;
+        h1 {
+            padding:40px;
+            font-size: 42px;
+            letter-spacing: -1px;
+        }
+        p {
+            padding:0px 40px 20px;
+        }
+        a {
+           position:absolute;
+           right:40px;
+           bottom:40px;
+           height:30px;
+           padding: 5px 10px;
+           border: 1px solid rgba(0,0,0,.25);
+           border-bottom-color: rgba(0,0,0,.35);
+           background-color:#ffb515;
+           @include border-radius(8px);
+           @include box-shadow(rgba(255,255,255,0.5) 0 1px 0 inset);
+           @include text-shadow(rgba(0,0,0,.4) 0 1px 0);
+           color: white;
+           line-height:30px;
+           font-size: 28px;
+           vertical-align: middle;
+        }
+    }
+}
+
+#hp-content {
+    padding-bottom:20px;
+    overflow:auto;
+    &>div {
+        @include span-columns(4,12);
+        @include box-sizing(border-box);
+        height:220px;
+        background-color:#fff;
+        @include border-radius(0 0 8px 8px);
+        h2 {
+            @extend .header;
+        }
+        p {
+            margin:20px;
+        }
+        a {
+            float:right;
+            color:#16274a;
+            text-decoration:underline;
+        }
+    }
+    &>div:last-child {
+        @include span-columns(4 omega,12);
+    }   
+}

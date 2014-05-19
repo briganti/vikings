@@ -1,0 +1,41 @@
+div#game-content(ng-controller="gameCtrl")
+    div#game-view
+        div.opponent-zone
+            ul.deck
+                li(ng-repeat="n in [] | range:opponentDeck")
+            ul.hand
+                li(ng-repeat='card in opponentHand track by $index', cardItem, template="opponentCard", content="card")
+            div.bin
+
+        div#game-view-board
+            div(ng-controller="boardCtrl")
+               div.cell(ng-repeat='(cellId, cardId) in board track by $index', ng-switch on="cardId")
+                    div.empty(ng-switch-when="null", drop="{{$index}}", drop-allowed="{{$parent.getBoardAllowed(cardId)}}", on-drop="dropAction(cardId, cellId)") {{cellId}}
+                    div.card(ng-switch-default, cardItem, template="boardCard", content="cardId")
+
+            ul#game-view-wooddeck
+                li(ng-repeat="n in [] | range:woodenDeck")
+
+        div.player-zone
+            ul.deck
+                li(ng-repeat="n in [] | range:playerDeck")
+            ul.hand(ng-controller="handCtrl")
+                li(ng-repeat='card in playerHand', ng-class="{selected : card.id === selectedBuff}", cardItem, template="playerCard", content="card", on-cast="castSpell(cardId)", on-buff="selectBuff(cardId)", on-view="viewCard(cardId)")
+            div(ng-controller="binCtrl", ng-switch on="binDrop")
+                div.bin(ng-switch-when="true", drop="bin", drop-allowed="{{binAllowed}}", on-drop="dropAction(cardId)")
+                div.bin(ng-switch-default)
+
+    div#game-playerdata
+        div.portrait
+        ul
+            li(ng-repeat="mana in manaPool", class="color{{mana.type}}") {{mana.quantity}}
+        span {{game.player.name}}
+        strong(class="p{{game.playerId}}") {{game.player.score}}
+
+    div#game-opponentdata(style="display:none")
+        div.portrait
+        ul
+        span {{game.opponent.name}}
+        strong
+
+    button#game-quit(ng-click="quitGame()") Quit

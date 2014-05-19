@@ -1,0 +1,29 @@
+{
+  "name": "vikings",
+  "version": "0.0.1",
+  "description": "A Cards game based on Triple Triads",
+  "developedBy": "Michael Vial",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.*",
+    "socket.io": "*",
+    "jade": "*",
+    "connect": "~2.12.0",
+    "uglify-js": "~2.4.11"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "~0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-preprocess": "~4.0.0",
+    "cookie": "~0.1.0",
+    "underscore": "~1.6.0"
+  }
+}

@@ -1,0 +1,13 @@
+div#lobby-content
+    form#lobby-chat(ng-controller='ChatCtrl', ng-submit='sendMessage()')
+        h5 Chat
+        div#lobby-chat-content
+            ul
+                li(ng-repeat='message in messages')
+                    strong {{message.user}}
+                    | : {{message.text}}
+                    span {{message.time | date:'HH:mm:ss'}}
+
+        input#lobby-chat-input(type="text",placeholder="compose message...",size='60', ng-model='message')
+        button(type='submit') Envoyer
+    div#lobby-other(data-ui-view)

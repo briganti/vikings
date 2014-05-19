@@ -1,0 +1,67 @@
+#navbar {
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    @include background-image(linear-gradient(top, #222, #111));
+    @include box-shadow(rgba(0,0,0,.1) 0px 1px 10px);
+    border-bottom: 1px solid #252525;
+    &>div {
+        @include container;
+        width:1140px;
+        .brand {
+            @include span-columns(3,12);
+            @include box-sizing(border-box);
+            display: block;
+            padding: 10px 20px 10px;
+            margin-left: -20px;
+            font-size: 20px;
+            font-weight: 200;
+            color: #999;
+            @include text-shadow(rgba(0,0,0,.25) 0px -1px 0);
+        }
+        .nav-collapse {
+            @include span-columns(9 omega,12);
+            ul {
+                position: relative;
+                left: 0;
+                display: block;
+                float: left;
+                margin: 0 10px 0 0;
+                padding:0;
+                list-style: none;
+                li {
+                    float: left;
+                    a {
+                        display: block;
+                        padding: 10px 15px 10px;
+                        @include box-shadow(rgba(0,3px,8px,.125) 0px 1px 10px inset);
+                        @include text-shadow(rgba(0,0,0,.25) 0px -1px 0);
+                        color: #555;
+                    }
+                    &.active a {
+                        color: #fff;
+                        background-color: #111;
+                    }
+                }
+            }
+            form {
+                @include container;
+                float:right;
+                input {
+                    margin-top: 5px;
+                    height:30px;
+                    @include box-sizing(border-box);
+                    @include span-columns(5,12);
+                }
+                button {
+                    margin-top: 5px;
+                    height:30px;
+                    @include box-sizing(border-box);
+                    @include span-columns(2 omega,12);
+                }
+            }
+        }
+    }
+}

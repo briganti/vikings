@@ -1,0 +1,6 @@
+div#popin-waitingplayer
+    h6 Partie finie
+    div.content(ng-switch on="win")
+        p(ng-switch-when="true") Congrats! You won this one!
+        p(ng-switch-default) How do you lose to that guy!
+        button(ng-click="quit()") Return to lobby

@@ -1,0 +1,29 @@
+div#lobby-profile(ng-controller="profileCtrl")
+    h5 Profile
+    div#lobby-profile-min
+        img(src="/img/avatar.png")
+        p {{name}}
+        ul
+            li(ng-repeat='cardId in deck', cardItem, template="libraryCard", content="cardId")
+        button#lobby-profile-editdeck(ng-click='editDeck()') Edit deck
+
+div#lobby-games(ng-controller="gameRoomCtrl")
+    h5 Games rooms
+    div#lobby-games-content
+        ul
+            li(ng-repeat='game in gameList', ng-class="{selected: game.id == $parent.selectedGame}")
+                a(ng-switch on="game.state", ng-click='$parent.selectedGame = game')
+                    span(ng-switch-when="available") {{game.p1.name}}
+                    span(ng-switch-when="playing") {{game.p1.name}} vs {{game.p2.name}}
+                    span {{game.state}}
+    button(ng-click="newGame()", ng-disabled="!isDeckReady()") Nouveau
+    button(ng-click="join()", ng-disabled="!canJoin()") Rejoindre
+
+div#lobby-players(ng-controller="PlayerListCtrl")
+    h5 Available player
+    div#lobby-players-content
+        ul
+            li(ng-repeat='player in playerList')
+                a {{player.name}}
+
+    //button#lobby-players-invite Inviter

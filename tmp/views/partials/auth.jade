@@ -1,0 +1,12 @@
+div#login-banner
+  div
+    h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin tellus!!!!!!
+    p Nulla in elit vitae massa pellentesque mollis bibendum et erat.
+
+div#login-content
+  ul(data-ng-controller="NavCtrl")
+    li(data-access-level='accessLevels.anon', active-nav)
+      a(href='/auth/guest') Guest
+    li(data-access-level='accessLevels.anon', active-nav)
+      a(href='/auth/login') Log in
+  div(data-ui-view)
