@@ -8,8 +8,6 @@ var express        = require('express'),
     server         = require('http').createServer(app),
     io             = require('socket.io').listen(server),
     path           = require('path'),
-    /*routes         = require('./routes'),*/
-    /*vikings        = require('./models/main.js'),*/
     port           = process.env.PORT || 61337,
     sessionStore   = new connect.middleware.session.MemoryStore(),
     sessionSecret  = "some private string",
@@ -87,7 +85,6 @@ sessionSockets.on('connection', function(err, socket, session){
     // Main
     socket.on('disconnect',        function()    { mainCtrl.disconnect(socket, session); });
     socket.on('chat:sendMessage',  function(data){ mainCtrl.chatSendMessage(socket, session, data); });
-    socket.on('lobby:getDeck',     function()    { mainCtrl.libraryGetDeck(socket, session); });
     socket.on('lobby:getGameList', function()    { mainCtrl.lobbyGetGameList(socket); });
     socket.on('library:get',       function()    { mainCtrl.libraryGet(socket, session); });
     socket.on('library:saveDeck',  function(data){ mainCtrl.librarySaveDeck(socket, session, data); });

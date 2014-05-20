@@ -99,7 +99,6 @@ angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap', 'ngAnimate'
 
         // FIX for trailing slashes. Gracefully "borrowed" from https://github.com/angular-ui/ui-router/issues/50
         $urlRouterProvider.rule(function($injector, $location) {
-            console.log($location);
             if($location.protocol() === 'file')
                 return;
 

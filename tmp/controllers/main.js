@@ -106,16 +106,6 @@ mainController.lobbyGetGameList = function(socket) {
     socket.emit('lobby:gamelist',{gamelist:main.getPublicGamelist()});
 };
 
-
-/**
- * Profile : get user deck
- */
-mainController.libraryGetDeck = function(socket, session) {
-    var p1 = main.getPlayer(session.user.id);
-    console.log(p1.deck);
-    socket.emit('lobby:getDeck', {deck: cards.getCardsFullInfo(p1.deck)});
-};
-
 /**
  * Profile : get user librairy & deck
  */
@@ -128,9 +118,8 @@ mainController.libraryGet = function(socket, session) {
  * Profile : save user deck
  */
 mainController.librarySaveDeck = function(socket, session, data) {
+    console.log('das');
     var p1 = main.getPlayer(session.user.id);
-    console.log('inSaveDeck');
-    console.log(data.deck);
     p1.deck = data.deck;
 };
 

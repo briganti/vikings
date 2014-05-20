@@ -5,7 +5,9 @@ div#lobby-profile(ng-controller="profileCtrl")
         p {{name}}
         ul
             li(ng-repeat='cardId in deck', cardItem, template="libraryCard", content="cardId")
-        button#lobby-profile-editdeck(ng-click='editDeck()') Edit deck
+        div.libinfo
+            p {{libraryLength}}/52
+            button(ng-click='editDeck()') Edit deck
 
 div#lobby-games(ng-controller="gameRoomCtrl")
     h5 Games rooms

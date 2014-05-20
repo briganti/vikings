@@ -3,23 +3,14 @@ angular.module('vikings')
     .controller('LibraryCtrl',
         ['$rootScope', '$scope', '$location', 'Auth', 'Socket', function($rootScope, $scope, $location, Auth, Socket) {
 
-            //Getting libraray & deck card from server
-            Socket.on('library:get', function (data) {
-                $scope.libraryCards = data.library;
-                $scope.deckCards    = data.deck;
-                //For all cards in library
-                for(var i = 0; i < $scope.libraryCards.length; i++) {
-                    //activate drag if nor selected in deck
-                    if(!$scope.isCardInDeck($scope.libraryCards[i].id)) {
-                        $scope.libraryCards[i].drag = true;
-                    }
-                }
-            });
-
+            //Get Card by Id in Library
             $scope.getCardById = function (id) {
-                for(var i = 0; i < $scope.libraryCards.length; i++) {
-                    if (id == $scope.libraryCards[i].id ) {
-                        return $scope.libraryCards[i];
+                var card;
+
+                for(var i = 0, ln = $scope.libraryCards.length; i < ln; i++) {
+                    card = $scope.libraryCards[i];
+                    if (id == card.id ) {
+                        return card;
                     }
                 }
                 return false;
@@ -27,8 +18,11 @@ angular.module('vikings')
 
             //Check if Card id is in deck
             $scope.isCardInDeck = function (id) {
-                for(var i = 0; i < $scope.deckCards.length; i++) {
-                    if ($scope.deckCards[i] !== null && id == $scope.deckCards[i].id ) {
+                var card;
+
+                for(var i = 0, ln = $scope.deckCards.length; i < ln; i++) {
+                    card = $scope.deckCards[i];
+                    if (card !== null && id == card.id ) {
                         return true;
                     }
                 }
@@ -37,37 +31,44 @@ angular.module('vikings')
 
             //Return an array of Card id for saving
             $scope.getDeckSavedFormat = function () {
-                var result = [];
-                var id = null;
-                for(var i = 0; i < $scope.deckCards.length; i++) {
-                    if ($scope.deckCards[i] === null) {
+                var result = [],
+                    card,
+                    id = null;
+
+                for(var i = 0, ln = $scope.deckCards.length; i < ln; i++) {
+                    card = $scope.deckCards[i];
+                    if (card === null) {
                         id = null;
                     } else {
-                        id = $scope.deckCards[i].id;
+                        id = card.id;
                     }
                     result.push(id);
                 }
                 return result;
             }
 
-
+            //Save deck
             $scope.saveDeck = function () {
                 Socket.emit('library:saveDeck', {
                     deck: $scope.getDeckSavedFormat()
                 });
-                Auth.deck = $scope.deckCards;
                 $location.path('/play/');
             }
 
             $scope.libraryPage  = 0;
-            $scope.deckCards    = Auth.deck;
-            $scope.libraryCards = [];
+            $scope.deckCards    = Auth.getDeck();
+            $scope.libraryCards = Auth.getLibrary();
 
-            Socket.emit('library:get');
+            //For all cards in library
+            for(var i = 0; i < $scope.libraryCards.length; i++) {
+                //activate drag if nor selected in deck
+                if(!$scope.isCardInDeck($scope.libraryCards[i].id)) {
+                    $scope.libraryCards[i].drag = true;
+                }
+            }
 
             //Dropping a library card on a deck case
             $scope.dropAction = function(cardId, cellId) {
-                console.log(cardId, cellId);
                 var libraryCard = $scope.getCardById(cardId);
                 libraryCard.drag = false;
                 $scope.deckCards[cellId] = {id : libraryCard.id};
@@ -92,12 +93,4 @@ angular.module('vikings')
                 }
                 $scope.$apply();
             });
-
-            //Destroy
-            $scope.$on('$destroy', function() {
-                Socket.removeAllListeners('library:get');
-                $scope.dropHandler();
-                $scope.resetDragHandler();
-            });
-
         }]);

@@ -67,8 +67,9 @@ angular.module('vikings')
             }
 
             $scope.isDeckReady = function () {
-                for(var i = 0; i < Auth.deck.length; i++) {
-                    if(Auth.deck[i] === null) {
+                var deck = Auth.getDeck();
+                for(var i = 0; i < deck.length; i++) {
+                    if(deck[i] === null) {
                         return false;
                     }
                 }

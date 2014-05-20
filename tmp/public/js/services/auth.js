@@ -1,16 +1,30 @@
 'use strict';
 
 angular.module('vikings')
-    .factory('Auth', function($http, $cookieStore){
+    .factory('Auth', ['$http', '$cookieStore', 'Socket', function($http, $cookieStore, Socket){
 
-        var accessLevels = routingConfig.accessLevels,
-            userRoles    = routingConfig.userRoles,
-            currentUser  = $cookieStore.get('user') || { id : '', name: '', role: userRoles.public},
-            currentDeck  = [null,null,null,null,null,null,null,null,null];
+        var accessLevels   = routingConfig.accessLevels,
+            userRoles      = routingConfig.userRoles,
+            currentUser    = $cookieStore.get('user') || { id : '', name: '', role: userRoles.public},
+            currentLibrary = [],
+            currentDeck    = [],
+            observerCallbacks = [];
 
         function changeUser(user) {
             angular.extend(currentUser, user);
         }
+
+        function notifyObservers(){
+            angular.forEach(observerCallbacks, function(callback){
+                callback();
+            });
+        }
+
+        Socket.on('library:get', function (data) {
+            currentLibrary = data.library;
+            currentDeck    = data.deck;
+            notifyObservers();
+        });
 
         return {
             authorize: function(accessLevel, role) {
@@ -53,9 +67,17 @@ angular.module('vikings')
                     success();
                 }).error(error);
             },
-            accessLevels: accessLevels,
-            userRoles: userRoles,
-            user: currentUser,
-            deck: currentDeck
+            registerObserverCallback : function(callback){
+                observerCallbacks.push(callback);
+            },
+            getDeck : function() {
+                return currentDeck;
+            },
+            getLibrary : function() {
+                return currentLibrary;
+            },
+            accessLevels : accessLevels,
+            userRoles    : userRoles,
+            user         : currentUser
         };
-    });
+    }]);
