@@ -1,11 +1,12 @@
-div#hp-carousel
+div#hp-carousel(ng-controller="homeCtrl")
     div
-        h1= title
-        p A web based card game inspired by Triple Triad
-        a.btn.btn-primary.btn-large(href='#/play') Arrggh &raquo;
+        h1 Vikings
+        p A web based card game inspired by Triple Triad.
+        a.btn.btn-primary.btn-large(data-access-level='accessLevels.user', href='/play') Play it now
+        a.btn.btn-primary.btn-large(data-access-level='accessLevels.anon', href='/auth/guest') Login to play
 div#hp-content
     div
-        h2 Be the best
+        h2 Multiplayer game
         p Fight and beat your opponent online in this head-to-head card game.
         p
             a.btn(href="#") See tuts &raquo;
@@ -14,6 +15,6 @@ div#hp-content
         p You will find a great collections of card, including creatures, tactics and spells. Build your deck from more than 50 cards. Remember, every decks as a flaw, you just need the right card to defeat it.
     div
         h2 Still under construction
-        p Be aware this game is still under construction. We are doing our best to improve this game.
+        p This game is currently in developpment and not yet finished.
         p
             a.btn(href="#") Contact us &raquo;
