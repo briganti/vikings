@@ -12,7 +12,7 @@ function player(id, name){
 	this.status         = "disconnected";
     this.room           = "available";
 	this.librairy       = cards.getMyStarterDeck();
-    this.deck           = this.librairy;//[null,null,null,null,null,null,null,null,null];
+    this.deck           = this.librairy.slice(0);
 	this.cardInStraight = [];
 };
 
@@ -65,6 +65,17 @@ player.prototype.isDisconnected = function(){
  */
 player.prototype.setLeft = function(){
     this.status = "left"
+}
+
+/**
+ * Get a random card as a price
+ */
+player.prototype.getAPrice = function(){
+    var gift = cards.getARandomCard(this.librairy);
+    console.log(gift);
+    if(gift) {
+        this.librairy.push(gift);
+    }
 }
 
 module.exports = player;

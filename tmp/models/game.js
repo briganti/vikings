@@ -347,12 +347,22 @@ game.prototype.endTurn = function() {
 game.prototype.isGameOver = function(){
     var gameOver = true;
     
-    for(i=0; i<this.board.length; i++) {
-        if(this.board[i] == null)
+    for(var i = 0, ln = this.board.length; i < ln; i++) {
+        if(this.board[i] == null) {
             gameOver = false;
+        }
     }
 
     return gameOver;
+}
+
+/* Game - get winner  ***************************************************************************/
+game.prototype.getWinnerId = function(){
+    if(this.player[0].score > this.player[1].score) {
+        return this.player[0].id;
+    } else {
+        return this.player[1].id;
+    }
 }
 
 /* Game - Clear Cards Status on board  **********************************************************/

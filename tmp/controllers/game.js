@@ -137,6 +137,14 @@ gameController.phase2Game = function(io, socket, session, data) {
     io.sockets.socket(g.player[0].socketID).emit('game:info',{game:g.exportGame(0)});
     //Update Game for Player 2
     io.sockets.socket(g.player[1].socketID).emit('game:info',{game:g.exportGame(1)});
+
+    //Reward
+    console.log('phase2Game', g.turn, g.isGameOver());
+    if(g.isGameOver()) {
+        var winner = main.getPlayer(g.getWinnerId());
+        console.log(winner);
+        winner.getAPrice();
+    }
 };
 
 

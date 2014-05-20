@@ -186,4 +186,28 @@ cards.getCardsFromDeck = function(deck) {
     return result;
 }
 
+/* Cards - geta random card that is no in pLibrary **********************************************/
+cards.getARandomCard = function(pLibrary) {
+    var cardsLn  = this.cards.length,
+        cardsBag = [],
+        currentCard;
+
+    //Player does not have all cards
+    if(pLibrary.length < cardsLn) {
+        for(var i = 0; i < cardsLn; i++) {
+            currentCard = this.cards[i].id;
+            if(pLibrary.indexOf(currentCard) == -1) {
+                cardsBag.push(currentCard);
+            }
+        }
+
+        if(cardsBag.length > 0) {
+            var randNum = Math.floor((Math.random()*(cardsBag.length)));
+            return cardsBag[randNum];
+        } else {
+            return false
+        }
+    }
+}
+
 module.exports = cards;
