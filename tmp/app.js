@@ -42,17 +42,6 @@ app.configure(function () {
  */
 require('./routes/index.js')(app, sessionStore);
 
-/*app.get('/',               routes.app);*/
-
-/*app.post('/auth/guest', routes.loginSetAuth(sessionStore, vikings));*/
-/*app.get('/partials/home',  routes.home);*/
-/*app.get('/partials/login', routes.login);*/
-
-/*app.get('/',       routes.home);
-app.get('/login',  routes.loginPage);
-app.post('/login', routes.loginSetAuth(sessionStore, vikings));
-app.get('/play',   routes.lobbyIsAuth(), routes.lobbyPage);*/
-
 
 /**
  * Configure Sockets
