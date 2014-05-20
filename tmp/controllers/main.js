@@ -90,12 +90,12 @@ mainController.chatSendMessage = function(socket, session, data) {
     var p1 = main.getPlayer(session.user.id);
     if(p1) {
         //Send Message to the Available Players
-        //if(p1.isAvailable()){
-        socket.broadcast.to(main.name).emit('chat:sendMessage',{user:p1.name, text:data.message});
-            //Send Message to the same Table Players
-        /*} else if(p1.isPlaying()){
-            socket.broadcast.to(p1.gameID).emit('send:message',{user:p1.name, text:data.message});
-        }*/
+        if(p1.isAvailable()){
+            socket.broadcast.to(main.name).emit('chat:sendMessage',{user:p1.name, text:data.message});
+        //Send Message to the same Table Players
+        } else if(p1.isPlaying()){
+            socket.broadcast.to(p1.gameID).emit('chat:sendMessage',{user:p1.name, text:data.message});
+        }
     }
 };
 

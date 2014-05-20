@@ -9,7 +9,6 @@ var gameController = {};
 
 /* Create a new game ****************************************************************************/
 gameController.createGame = function(socket, session, data) {
-    console.log('create game');
     var p = main.getPlayer(session.user.id);
 
     //Player is not in play
@@ -51,14 +50,8 @@ gameController.joinGame = function(io, socket, session, data) {
         socket.broadcast.to(main.name).emit('lobby:gamelist',{gamelist:main.getPublicGamelist()});
 
         //Start Game for players
-        console.log(g.player[0].name, g.player[1].name);
         io.sockets.socket(g.player[0].socketID).emit('game:start',{gameId:g.id});
         io.sockets.socket(g.player[1].socketID).emit('game:start',{gameId:g.id});
-
-
-        //io.sockets.socket(g.player[0].socketID).emit('game:start',{game:g.exportGame(0)});
-        //Start Game for P2
-        //io.sockets.socket(g.player[1].socketID).emit('game:start',{game:g.exportGame(1)});
     }
 };
 
@@ -92,7 +85,6 @@ gameController.quitGame = function(socket, session) {
         if(g.removePlayer(p.id)) {
             main.removeGame(g.id);
         } else {
-            console.log('opponent has left');
             socket.broadcast.to(g.id).emit('game:opponentleft');
         }
 
