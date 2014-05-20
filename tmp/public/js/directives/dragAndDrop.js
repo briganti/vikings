@@ -34,56 +34,67 @@ angular.module('vikings').directive("drag", ["$rootScope", function ($rootScope)
 
 angular.module('vikings').directive("drop", ['$rootScope', function ($rootScope) {
 
-    function dragEnter(evt, element, dropStyle) {
+    function canDrop(scope) {
+        var canIDrop = false;
+
+        if(scope.dropMandatory !== false) {
+            if( scope.dropMandatory.indexOf($rootScope.draggedElement) != -1) {
+                canIDrop = true;
+            }
+        } else {
+            canIDrop = true;
+        }
+        return canIDrop;
+    };
+
+    function dragEnter(evt, scope, element) {
         evt.preventDefault();
-        if($rootScope.draggedElement !== null) {
-            element.addClass(dropStyle);
+        if(canDrop(scope)) {
+            element.addClass(scope.dropStyle);
         }
     };
 
-    function dragLeave(evt, element, dropStyle) {
-        element.removeClass(dropStyle);
+    function dragLeave(evt, scope, element) {
+        element.removeClass(scope.dropStyle);
     };
 
     function dragOver(evt) {
         evt.preventDefault();
     };
 
-    function doDrop(evt, scope, element, attrs) {
+    function doDrop(evt, scope, element) {
         evt.preventDefault();
         element.removeClass(scope.dropStyle);
 
-        if(attrs.dropAllowed) {
-            scope.dropAllowed = JSON.parse(attrs.dropAllowed);
-            if( scope.dropAllowed.indexOf($rootScope.draggedElement) != -1) {
-                scope.onDrop({cardId : $rootScope.draggedElement, cellId : attrs["drop"]});
-                $rootScope.draggedElement = null;
-            }
-        } else {
-            scope.onDrop({cardId : $rootScope.draggedElement, cellId : attrs["drop"]});
+        if(canDrop(scope)) {
+            scope.onDrop({cardId : $rootScope.draggedElement, cellId : scope.drop});
             $rootScope.draggedElement = null;
         }
     };
 
     return {
         restrict: 'A',
-        link: function (scope, element, attrs) {
-            scope.dropStyle   = "dropping";
+        link: function (scope, element) {
+            scope.dropStyle     = "dropping";
+            scope.dropMandatory = false;
 
-            if(attrs.dropAllowed) {
-                scope.dropAllowed = JSON.parse(attrs.dropAllowed);
-            } else {
-                scope.dropAllowed = 'any';
-            }
-
-            element.bind('dragenter', function (evt) { dragEnter(evt, element, scope.dropStyle); });
-            element.bind('dragleave', function (evt) { dragLeave(evt, element, scope.dropStyle); });
+            element.bind('dragenter', function (evt) { dragEnter(evt, scope, element); });
+            element.bind('dragleave', function (evt) { dragLeave(evt, scope, element); });
             element.bind('dragover',  dragOver);
-            element.bind('drop',      function (evt) { doDrop(evt, scope, element, attrs); });
+            element.bind('drop',      function (evt) { doDrop(evt, scope, element); });
+
+            scope.$watch('dropAllowed', function(dropAllowed) {
+                if(dropAllowed) {
+                    scope.dropMandatory = JSON.parse(dropAllowed);
+                } else {
+                    scope.dropMandatory = false;
+                }
+            });
         },
         scope: {
-            drop: '@',
-            onDrop: '&'
+            drop        : '@',
+            dropAllowed : '@',
+            onDrop      : '&'
         }
     }
 }]);
