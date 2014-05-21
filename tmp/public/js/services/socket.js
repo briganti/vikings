@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('vikings')
-    .factory('Socket', function ($rootScope) {
+    .factory('Socket', ['$rootScope', function ($rootScope) {
     var socket = io.connect();
     return {
         on: function (eventName, callback) {
@@ -26,4 +26,4 @@ angular.module('vikings')
             socket.removeAllListeners(eventName);
         }
     };
-});
+}]);

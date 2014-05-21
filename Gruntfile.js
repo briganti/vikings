@@ -38,8 +38,8 @@ module.exports = function(grunt) {
                 '<%= PRODUCTION_PATH %>' + 'public/js/services',
                 '<%= PRODUCTION_PATH %>' + 'public/js/app.js',
                 '<%= PRODUCTION_PATH %>' + 'public/js/controllers.js',
-                '<%= PRODUCTION_PATH %>' + 'public/js/directives.js',
-                '<%= PRODUCTION_PATH %>' + 'public/js/<%= pkg.name %>.js'
+                '<%= PRODUCTION_PATH %>' + 'public/js/directives.js'/*,
+                '<%= PRODUCTION_PATH %>' + 'public/js/<%= pkg.name %>.js'*/
             ],
         },
     
@@ -153,5 +153,5 @@ module.exports = function(grunt) {
 
     /* Tasks */
     grunt.registerTask('default', ['clean:dev', 'copy:dev', 'compass:dev', 'preprocess:dev']);
-    grunt.registerTask('build', ['clean:prod', 'copy:prod', 'compass:prod', 'preprocess:prod', 'concat:prod', 'uglify:prod', 'clean:prodDone']);
+    grunt.registerTask('build', ['clean:prod', 'copy:prod', 'compass:prod', 'preprocess:prod', 'concat:prod', /*'uglify:prod',*/ 'clean:prodDone']);
 };
