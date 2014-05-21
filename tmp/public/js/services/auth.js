@@ -8,7 +8,7 @@ angular.module('vikings')
             currentUser    = $cookieStore.get('user') || { id : '', name: '', role: userRoles.public},
             currentLibrary = [],
             currentDeck    = [],
-            observerCallbacks = [];
+            observerCallbacks = {};
 
         function changeUser(user) {
             angular.extend(currentUser, user);
@@ -67,8 +67,8 @@ angular.module('vikings')
                     success();
                 }).error(error);
             },
-            registerObserverCallback : function(callback){
-                observerCallbacks.push(callback);
+            registerObserverCallback : function(id, callback){
+                observerCallbacks[id] = callback;
             },
             getDeck : function() {
                 return currentDeck;

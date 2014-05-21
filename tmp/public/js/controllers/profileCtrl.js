@@ -17,7 +17,7 @@ angular.module('vikings')
             $scope.deck          = Auth.getDeck();
             $scope.libraryLength = Auth.getLibrary().length;
 
-            Auth.registerObserverCallback(updateLibraryAndDeck);
+            Auth.registerObserverCallback('profileCtrl', updateLibraryAndDeck);
 
             Socket.emit('library:get');
         }]);
