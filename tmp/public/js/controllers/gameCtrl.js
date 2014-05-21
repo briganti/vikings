@@ -5,7 +5,8 @@ angular.module('vikings')
         ['$rootScope', '$scope', '$location', '$modal', '$stateParams', 'Socket', function($rootScope, $scope, $location, $modal, $stateParams, Socket) {
 
             Socket.on('game:info', function (data) {
-                $scope.playerId = data.game.playerId;
+                $scope.playerId   = data.game.playerId;
+                $scope.opponentId =  data.game.opponentId;
 
                 $scope.player   = data.game.player;
                 $scope.opponent = data.game.opponent;
@@ -15,7 +16,8 @@ angular.module('vikings')
 
                 $scope.woodenDeck   = data.game.woodendeck;
 
-                $scope.updateManaPool(data.game.player.mana);
+                $scope.manaPool   = $scope.updateManaPool(data.game.player.mana);
+                $scope.manaPoolOp = $scope.updateManaPool(data.game.opponent.mana);
             });
 
 
@@ -31,7 +33,7 @@ angular.module('vikings')
                         });
                     }
                 }
-                $scope.manaPool = result;
+                return result;
             }
 
             //Return true if card's requirment are meet
@@ -61,7 +63,8 @@ angular.module('vikings')
             };
 
             $scope.gameId   = $stateParams.gameId;
-            $scope.playerId = null;
+            $scope.playerId   = null;
+            $scope.opponentId = null;
 
             $scope.player   = null;
             $scope.opponent = null;
@@ -71,7 +74,9 @@ angular.module('vikings')
 
             $scope.playerHand   = [];
             $scope.woodenDeck   = 0;
-            $scope.manaPool = [];
+
+            $scope.manaPool   = [];
+            $scope.manaPoolOp = [];
 
             $scope.selectedBuff = null;
 

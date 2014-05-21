@@ -25,17 +25,18 @@ div#game-content(ng-controller="gameCtrl")
                 div.bin(ng-switch-when="true", drop="bin", drop-allowed="{{binAllowed}}", on-drop="dropAction(cardId)")
                 div.bin(ng-switch-default)
 
-    div#game-playerdata
+    div#game-playerdata(class="p{{playerId}}", ng-class="{selected : turn == playerId})")
         div.portrait
         ul
             li(ng-repeat="mana in manaPool", class="color{{mana.type}}") {{mana.quantity}}
         span {{player.name}}
-        strong(class="p{{playerId}}") {{player.score}}
+        strong {{player.score}}
 
-    div#game-opponentdata(style="display:none")
+    div#game-opponentdata(class="p{{opponentId}}")
         div.portrait
         ul
+            li(ng-repeat="mana in manaPoolOp", class="color{{mana.type}}") {{mana.quantity}}
         span {{opponent.name}}
-        strong
+        strong {{opponent.score}}
 
     button#game-quit(ng-click="quitGame()") Quit

@@ -418,6 +418,7 @@ game.prototype.exportGame = function(you) {
     var gameExported = {    
         id : this.id,
         playerId : you,
+        opponentId : foe,
         player : {
             name  : this.player[you].name,
             hand  : this.player[you].hand,
@@ -428,7 +429,9 @@ game.prototype.exportGame = function(you) {
         opponent : {
             name : this.player[foe].name,
             hand : this.exportFoeDeck(you, foe),
-            deck : this.player[foe].deck.length
+            deck : this.player[foe].deck.length,
+            mana  : this.getPlayerMana(foe),
+            score : this.player[foe].score
         },
         
         woodendeck : this.woodenDeck.length,

@@ -322,6 +322,7 @@
     &> ul {
         list-style:none inside none;
         li{
+            display: block;
             position:absolute;
             width:14px;
             height:14px;
@@ -388,10 +389,20 @@
         font-weight:bold;
         opacity:0.8;
         @include text-shadow(rgba(0,0,0,.5) 2px 2px 2px);
-        &.p0 {
+    }
+    &.p0 {
+        &.selected .portrait {
+            box-shadow: inset 0px 0px 6px 0px CornflowerBlue , 0px 0px 8px 2px CornflowerBlue , 0px 0px 2px rgba(255,255,255,0), inset 0px 0px 2px rgba(255,255,255,0);
+        }
+        strong{
             color:CornflowerBlue;
         }
-        &.p1 {
+    }
+    &.p1 {
+        &.selected .portrait {
+            box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255,255,255,0), inset 0px 0px 2px rgba(255,255,255,0);
+        }
+        strong{
             color:orangered;
         }
     }
@@ -401,8 +412,8 @@
     right:0;
 }
 #game-opponentdata {
-    top:15px;
-    left:90px;
+    top:0px;
+    left:80px;
 }
 
 #game-quit {
