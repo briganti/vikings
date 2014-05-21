@@ -5,7 +5,6 @@ angular.module('vikings')
         ['$rootScope', '$scope', '$modal', 'Socket', function($rootScope, $scope, $modal, Socket) {
 
             Socket.on('game:info', function (data) {
-                console.log('Socket hand');
                 $scope.updatePlayerHand(data.game.player.hand);
             });
 

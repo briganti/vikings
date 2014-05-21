@@ -5,7 +5,6 @@ angular.module('vikings')
         ['$rootScope', '$scope', 'Socket', function($rootScope, $scope, Socket) {
 
             Socket.on('game:info', function () {
-                console.log('Socket bin');
                 $scope.binDrop    = $scope.isBinDroppable();
                 $scope.binAllowed = $scope.getBinAllowedDroppable();
             });

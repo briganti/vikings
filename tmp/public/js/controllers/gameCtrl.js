@@ -5,81 +5,24 @@ angular.module('vikings')
         ['$rootScope', '$scope', '$location', '$modal', '$stateParams', 'Socket', function($rootScope, $scope, $location, $modal, $stateParams, Socket) {
 
             Socket.on('game:info', function (data) {
-                $scope.game = data.game;
-
                 $scope.playerId = data.game.playerId;
 
-                $scope.phase    = data.game.phase;
-                $scope.updateTurn(data.game.turn);
+                $scope.player   = data.game.player;
+                $scope.opponent = data.game.opponent;
 
-                $scope.opponentHand = data.game.opponent.hand;
+                $scope.phase  = data.game.phase;
+                $scope.turn   = data.game.turn;
 
                 $scope.woodenDeck   = data.game.woodendeck;
-                $scope.playerDeck   = data.game.player.deck;
-                $scope.opponentDeck = data.game.opponent.deck;
 
                 $scope.updateManaPool(data.game.player.mana);
             });
 
-            Socket.on('game:win', function (data) {
-                $scope.modalInstanceGameOver = $modal.open({
-                    templateUrl : 'modal/gameOverWin',
-                    controller  : modalInstanceGameOver,
-                    resolve: {
-                        cardId : function() {
-                            return data.gift;
-                        }
-                    }
-                });
-
-                $scope.modalInstanceGameOver.result.then(function() {
-                }, function () {
-                    $scope.modalInstanceGameOver = null;
-                    Socket.emit('game:quit');
-                    $location.path('/play/');
-                });
-            });
-
-            Socket.on('game:lose', function () {
-                $scope.modalInstanceGameOver = $modal.open({
-                    templateUrl : 'modal/gameOverLose',
-                    controller  : modalInstanceGameOver,
-                    resolve: {
-                        cardId : function() {
-                            return null;
-                        }
-                    }
-                });
-
-                $scope.modalInstanceGameOver.result.then(function() {
-                }, function () {
-                    $scope.modalInstanceGameOver = null;
-                    Socket.emit('game:quit');
-                    $location.path('/play/');
-                });
-            });
-
-            //Modal Opponent Left
-            Socket.on('game:opponentleft', function () {
-                //GameOver modal not shown
-                if($scope.modalInstanceGameOver === null) {
-                    $scope.modalInstanceOpponentLeft = $modal.open({
-                        templateUrl : 'modal/opponentleft',
-                        controller  : modalInstanceOpponentLeft
-                    });
-
-                    $scope.modalInstanceOpponentLeft.result.then(function() {
-                    }, function () {
-                        $scope.modalInstanceOpponentLeft = null;
-                        Socket.emit('game:quit');
-                        $location.path('/play/');
-                    });
-                }
-            });
 
             //update mana pool
             $scope.updateManaPool = function(mana) {
-                var result = []
+                var result = [];
+
                 for(var i = 1; i < 5; i++) {
                     if(mana[i] > 0) {
                         result.push({
@@ -91,23 +34,21 @@ angular.module('vikings')
                 $scope.manaPool = result;
             }
 
-            //Init Turn
-            $scope.updateTurn = function(turn) {
-                $scope.turn = turn;
-            };
-
             //Return true if card's requirment are meet
             $scope.isPlayable = function(card) {
-                if(card.req.length > 0) {
-                    for(var i = 0; i < card.req.length; i++) {
-                        if ($scope.game.player.mana[card.req[i].color] < card.req[i].lvl) {
+                var cardRequire,
+                    ln = card.req.length;
+
+                if(ln > 0) {
+                    for(var i = 0; i < ln; i++) {
+                        cardRequire = card.req[i];
+                        if ($scope.player.mana[cardRequire.color] < cardRequire.lvl) {
                             return false;
                         }
                     }
                 }
                 return true;
             }
-
 
             //Set Player Hand From Ctrl Hand
             $scope.setPlayerHand = function(hand) {
@@ -120,19 +61,16 @@ angular.module('vikings')
             };
 
             $scope.gameId   = $stateParams.gameId;
-            $scope.game     = null;
-            $scope.turn     = null;
             $scope.playerId = null;
 
+            $scope.player   = null;
+            $scope.opponent = null;
+
+            $scope.turn  = null;
             $scope.phase = 0;
 
             $scope.playerHand   = [];
-            $scope.opponentHand = [];
-
             $scope.woodenDeck   = 0;
-            $scope.playerDeck   = 0;
-            $scope.opponentDeck = 0;
-
             $scope.manaPool = [];
 
             $scope.selectedBuff = null;
@@ -152,11 +90,63 @@ angular.module('vikings')
                 $scope.selectedBuff = null;
             }
 
+            //Popin Game Over
+            Socket.on('game:win', function (data) {
+                $scope.showGameOverModal('gameOverWin', data.gift);
+            });
+            Socket.on('game:lose', function () {
+                $scope.showGameOverModal('gameOverLose', null);
+            });
+            $scope.showGameOverModal = function(modalName, cardId) {
+                $scope.modalInstanceGameOver = $modal.open({
+                    templateUrl : 'modal/' + modalName,
+                    controller  : modalInstanceGameOver,
+                    resolve: {
+                        cardId : function() {
+                            return cardId;
+                        }
+                    }
+                });
+
+                $scope.modalInstanceGameOver.result.then(function() {
+                }, function () {
+                    $scope.modalInstanceGameOver = null;
+                    $scope.quitGame();
+                });
+            }
+
+            //Popin Opponent Left
+            Socket.on('game:opponentleft', function () {
+                //GameOver modal not shown
+                if($scope.modalInstanceGameOver === null) {
+                    $scope.modalInstanceOpponentLeft = $modal.open({
+                        templateUrl : 'modal/opponentleft',
+                        controller  : modalInstanceOpponentLeft
+                    });
+
+                    $scope.modalInstanceOpponentLeft.result.then(function() {
+                    }, function () {
+                        $scope.modalInstanceOpponentLeft = null;
+                        $scope.quitGame();
+                    });
+                }
+            });
+
             //Quit Game
             $scope.quitGame = function() {
                 Socket.emit('game:quit');
                 $location.path('/play/');
             }
+
+            //Destroy
+            $scope.$on('$destroy', function () {
+                Socket.removeAllListeners('game:win');
+                Socket.removeAllListeners('game:lose');
+                Socket.removeAllListeners('game:opponentleft');
+                Socket.removeAllListeners('game:info');
+            });
+
+
         }])
     .filter('range', function(){
         return function(input, total) {

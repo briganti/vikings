@@ -2,9 +2,9 @@ div#game-content(ng-controller="gameCtrl")
     div#game-view
         div.opponent-zone
             ul.deck
-                li(ng-repeat="n in [] | range:opponentDeck")
+                li(ng-repeat="n in [] | range:opponent.deck")
             ul.hand
-                li(ng-repeat='card in opponentHand track by $index', cardItem, template="opponentCard", content="card")
+                li(ng-repeat='card in opponent.hand track by $index', cardItem, template="opponentCard", content="card")
             div.bin
 
         div#game-view-board
@@ -18,7 +18,7 @@ div#game-content(ng-controller="gameCtrl")
 
         div.player-zone
             ul.deck
-                li(ng-repeat="n in [] | range:playerDeck")
+                li(ng-repeat="n in [] | range:player.deck")
             ul.hand(ng-controller="handCtrl")
                 li(ng-repeat='card in playerHand', ng-class="{selected : card.id === selectedBuff}", cardItem, template="playerCard", content="card", on-cast="castSpell(cardId)", on-buff="selectBuff(cardId)", on-view="viewCard(cardId)")
             div(ng-controller="binCtrl", ng-switch on="binDrop")
@@ -29,13 +29,13 @@ div#game-content(ng-controller="gameCtrl")
         div.portrait
         ul
             li(ng-repeat="mana in manaPool", class="color{{mana.type}}") {{mana.quantity}}
-        span {{game.player.name}}
-        strong(class="p{{game.playerId}}") {{game.player.score}}
+        span {{player.name}}
+        strong(class="p{{playerId}}") {{player.score}}
 
     div#game-opponentdata(style="display:none")
         div.portrait
         ul
-        span {{game.opponent.name}}
+        span {{opponent.name}}
         strong
 
     button#game-quit(ng-click="quitGame()") Quit
