@@ -80,7 +80,7 @@ module.exports = function(grunt) {
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['controllers/*'], dest: '<%= PRODUCTION_PATH %>'},
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['models/*'], dest: '<%= PRODUCTION_PATH %>'},
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['routes/*'], dest: '<%= PRODUCTION_PATH %>'},
-                    { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['views/*'], dest: '<%= PRODUCTION_PATH %>'},
+                    { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['views/**'], dest: '<%= PRODUCTION_PATH %>'},
                     { src: '<%= RESSOURCE_PATH %>' + 'app.js', dest: '<%= PRODUCTION_PATH %>' + 'app.js'},
                     { src: '<%= RESSOURCE_PATH %>' + 'vikings.js', dest: '<%= PRODUCTION_PATH %>' + 'vikings.js'}
                 ]
