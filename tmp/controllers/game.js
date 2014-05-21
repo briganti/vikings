@@ -138,12 +138,15 @@ gameController.phase2Game = function(io, socket, session, data) {
     //Update Game for Player 2
     io.sockets.socket(g.player[1].socketID).emit('game:info',{game:g.exportGame(1)});
 
-    //Reward
-    console.log('phase2Game', g.turn, g.isGameOver());
+    //Game over
     if(g.isGameOver()) {
-        var winner = main.getPlayer(g.getWinnerId());
-        console.log(winner);
-        winner.getAPrice();
+        var gameWinner = g.getWinner();
+        var gameLoser  = (gameWinner+1)%2;
+
+        var winnerCard = main.getPlayer(g.player[gameWinner].id).getAPrice();
+
+        io.sockets.socket(g.player[gameWinner].socketID).emit('game:win',{gift:winnerCard});
+        io.sockets.socket(g.player[gameLoser].socketID).emit('game:lose');
     }
 };
 

@@ -1,3 +1,67 @@
+.popin {
+    position: fixed;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    h6 {
+        display:block;
+        width: 100%;
+        background-color: #333;
+        font-size: 21px;
+        line-height: 40px;
+        color: #fff;
+        text-indent: 10px;
+    }
+    .content {
+        position: relative;
+        padding: 20px;
+        text-align:center;
+    }
+}
+
+#gameoverwin {
+    left: calc(50% - 178px);
+    top: calc(50% - 115px);
+    width:356px;
+    height:230px;
+    .content {
+        padding-right: 140px;
+        p {
+            padding-top: 20px;
+        }
+        .cardHeader {
+            position: absolute;
+            right: 10px;
+            z-index: 2;
+            font-weight: bold;
+            font-size: 16px;
+            color: Orange;
+            top: 10px;
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
+        }
+        img {
+            position: absolute;
+            top: 30px;
+            right:20px;
+            width: 100px;
+        }
+        button {
+            margin-top: 40px;
+        }
+    }
+}
+
+#gameoverlose {
+    left: calc(50% - 178px);
+    top: calc(50% - 90px);
+    width:356px;
+    height:180px;
+    button {
+        margin-top: 20px;
+    }
+}
+
+
 #popin-creategame {
     position: fixed;
     left: calc(50% - 178px);
@@ -113,12 +177,4 @@
         padding: 20px;
         
     }
-}
-
-#popin-invitation {
-  display:none;
-} 
-
-#popin-endgame {
-  display:none;
 }

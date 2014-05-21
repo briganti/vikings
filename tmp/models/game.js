@@ -357,11 +357,11 @@ game.prototype.isGameOver = function(){
 }
 
 /* Game - get winner  ***************************************************************************/
-game.prototype.getWinnerId = function(){
+game.prototype.getWinner = function(){
     if(this.player[0].score > this.player[1].score) {
-        return this.player[0].id;
+        return 0;
     } else {
-        return this.player[1].id;
+        return 1;
     }
 }
 

@@ -5,8 +5,6 @@ angular.module('vikings')
         ['$rootScope', '$scope', '$location', '$modal', '$stateParams', 'Socket', function($rootScope, $scope, $location, $modal, $stateParams, Socket) {
 
             Socket.on('game:info', function (data) {
-                console.log('Socket game');
-
                 $scope.game = data.game;
 
                 $scope.playerId = data.game.playerId;
@@ -21,6 +19,44 @@ angular.module('vikings')
                 $scope.opponentDeck = data.game.opponent.deck;
 
                 $scope.updateManaPool(data.game.player.mana);
+            });
+
+            Socket.on('game:win', function (data) {
+                $scope.modalInstanceGameOver = $modal.open({
+                    templateUrl : 'modal/gameOverWin',
+                    controller  : modalInstanceGameOver,
+                    resolve: {
+                        cardId : function() {
+                            return data.gift;
+                        }
+                    }
+                });
+
+                $scope.modalInstanceGameOver.result.then(function() {
+                }, function () {
+                    $scope.modalInstanceGameOver = null;
+                    Socket.emit('game:quit');
+                    $location.path('/play/');
+                });
+            });
+
+            Socket.on('game:lose', function () {
+                $scope.modalInstanceGameOver = $modal.open({
+                    templateUrl : 'modal/gameOverLose',
+                    controller  : modalInstanceGameOver,
+                    resolve: {
+                        cardId : function() {
+                            return null;
+                        }
+                    }
+                });
+
+                $scope.modalInstanceGameOver.result.then(function() {
+                }, function () {
+                    $scope.modalInstanceGameOver = null;
+                    Socket.emit('game:quit');
+                    $location.path('/play/');
+                });
             });
 
             //Modal Opponent Left
@@ -57,27 +93,6 @@ angular.module('vikings')
 
             //Init Turn
             $scope.updateTurn = function(turn) {
-                if(turn == 'over') {
-                    $scope.modalInstanceGameOver = $modal.open({
-                        templateUrl : 'modal/gameOver',
-                        controller  : modalInstanceGameOver,
-                        resolve: {
-                            win : function () {
-                                if($scope.game.player.score > 4) {
-                                    return true;
-                                }
-                                return false;
-                            }
-                        }
-                    });
-
-                    $scope.modalInstanceGameOver.result.then(function() {
-                        }, function () {
-                        $scope.modalInstanceGameOver = null;
-                        Socket.emit('game:quit');
-                        $location.path('/play/');
-                    });
-                }
                 $scope.turn = turn;
             };
 
@@ -92,6 +107,7 @@ angular.module('vikings')
                 }
                 return true;
             }
+
 
             //Set Player Hand From Ctrl Hand
             $scope.setPlayerHand = function(hand) {
@@ -157,8 +173,8 @@ var modalInstanceOpponentLeft = function ($scope, $modalInstance) {
     };
 };
 
-var modalInstanceGameOver = function ($scope, $modalInstance, win) {
-    $scope.win = win;
+var modalInstanceGameOver = function ($scope, $modalInstance, cardId) {
+    $scope.cardId = cardId;
 
     $scope.quit = function () {
         $modalInstance.dismiss();
