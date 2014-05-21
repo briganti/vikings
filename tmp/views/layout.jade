@@ -15,10 +15,16 @@ html(ng-app="vikings")
 
         script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js")
         script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-animate.min.js")
+        script(src="//code.angularjs.org/1.2.9/angular-cookies.min.js")
+
+        <!-- @if production=true -->
+        script(src="/js/vikings.min.js")
+        <!-- @endif -->
+
+        <!-- @if production=false -->
         script(src='/js/external/angular-ui-router.min.js')
         script(src='/js/external/ui-bootstrap-0.10.0.min.js')
         script(src='/js/external/ui-bootstrap-tpls-0.10.0.min.js')
-        script(src="//code.angularjs.org/1.2.9/angular-cookies.min.js")
 
         script(src="/js/app.js")
 
@@ -38,12 +44,12 @@ html(ng-app="vikings")
         script(src="/js/directives/cardItem.js")
         script(src="/js/directives/dragAndDrop.js")
 
-        script(src="/js/routingConfig.js")
-
         script(src="/js/services/auth.js")
         script(src="/js/services/socket.js")
         script(src="/js/services/users.js")
+        <!-- @endif -->
 
+        script(src="/js/routingConfig.js")
         script(src='/socket.io/socket.io.js')
 
         script(type="text/ng-template", id="home")

@@ -32,8 +32,13 @@ module.exports = function(grunt) {
             dev : ['<%= DEVELOPMENT_PATH %>'],
             prod: ['<%= PRODUCTION_PATH %>'],
             prodDone : [
-                '<%= PRODUCTION_PATH %>' + 'public/js/internal',
+                '<%= PRODUCTION_PATH %>' + 'public/js/controllers',
+                '<%= PRODUCTION_PATH %>' + 'public/js/directives',
                 '<%= PRODUCTION_PATH %>' + 'public/js/external',
+                '<%= PRODUCTION_PATH %>' + 'public/js/services',
+                '<%= PRODUCTION_PATH %>' + 'public/js/app.js',
+                '<%= PRODUCTION_PATH %>' + 'public/js/controllers.js',
+                '<%= PRODUCTION_PATH %>' + 'public/js/directives.js',
                 '<%= PRODUCTION_PATH %>' + 'public/js/<%= pkg.name %>.js'
             ],
         },
@@ -68,8 +73,7 @@ module.exports = function(grunt) {
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['models/*'], dest: '<%= DEVELOPMENT_PATH %>'},
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['routes/*'], dest: '<%= DEVELOPMENT_PATH %>'},
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['views/**'], dest: '<%= DEVELOPMENT_PATH %>'},
-                    { src: '<%= RESSOURCE_PATH %>' + 'app.js', dest: '<%= DEVELOPMENT_PATH %>' + 'app.js'},
-                    { src: '<%= RESSOURCE_PATH %>' + 'vikings.js', dest: '<%= DEVELOPMENT_PATH %>' + 'vikings.js'}
+                    { src: '<%= RESSOURCE_PATH %>' + 'app.js', dest: '<%= DEVELOPMENT_PATH %>' + 'app.js'}
                 ]
             },
             prod: {
@@ -81,8 +85,7 @@ module.exports = function(grunt) {
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['models/*'], dest: '<%= PRODUCTION_PATH %>'},
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['routes/*'], dest: '<%= PRODUCTION_PATH %>'},
                     { expand: true, cwd: '<%= RESSOURCE_PATH %>', src: ['views/**'], dest: '<%= PRODUCTION_PATH %>'},
-                    { src: '<%= RESSOURCE_PATH %>' + 'app.js', dest: '<%= PRODUCTION_PATH %>' + 'app.js'},
-                    { src: '<%= RESSOURCE_PATH %>' + 'vikings.js', dest: '<%= PRODUCTION_PATH %>' + 'vikings.js'}
+                    { src: '<%= RESSOURCE_PATH %>' + 'app.js', dest: '<%= PRODUCTION_PATH %>' + 'app.js'}
                 ]
             }
         },
@@ -90,7 +93,7 @@ module.exports = function(grunt) {
         /* Preprocess Js files */
         preprocess: {
             dev: {
-                src: ['<%= DEVELOPMENT_PATH %>' + 'public/js/**/*.js'],
+                src: ['<%= DEVELOPMENT_PATH %>' + 'views/layout.jade'],
                 options: {
                     inline: true,
                     context: {
@@ -99,7 +102,7 @@ module.exports = function(grunt) {
                 }
             },
             prod: {
-                src: ['<%= PRODUCTION_PATH %>' + 'public/js/**/*.js'],
+                src: ['<%= PRODUCTION_PATH %>' + 'views/layout.jade'],
                 options: {
                     inline: true,
                     context: {
@@ -115,7 +118,12 @@ module.exports = function(grunt) {
                 separator: ';'
             },
             prod: {
-                src  : ['<%= PRODUCTION_PATH %>' + 'public/js/**/*.js'],
+                src  : [
+                '<%= PRODUCTION_PATH %>' + 'public/js/**/*.js',
+                '<%= PRODUCTION_PATH %>' + 'public/js/app.js',
+                '<%= PRODUCTION_PATH %>' + 'public/js/controllers.js',
+                '<%= PRODUCTION_PATH %>' + 'public/js/directives.js'
+                ],
                 dest : '<%= PRODUCTION_PATH %>' + 'public/js/<%= pkg.name %>.js'
             }
         },
