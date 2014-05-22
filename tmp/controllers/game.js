@@ -111,7 +111,6 @@ gameController.phase0Game = function(io, socket, session, data) {
 
 /* Game - Phase 1 *******************************************************************************/
 gameController.phase1Game = function(io, socket, session, data) {
-    console.log('gamePhase1');
     //get player & game
     var p = main.getPlayer(session.user.id);
     var g = main.getGame(p.gameID);

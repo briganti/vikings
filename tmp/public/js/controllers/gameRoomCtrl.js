@@ -82,6 +82,12 @@ angular.module('vikings')
             $scope.modalWaitingPlayer = null;
 
             Socket.emit('lobby:getGameList');
+
+            //Destroy
+            $scope.$on('$destroy', function () {
+                Socket.removeAllListeners('lobby:gamelist');
+                Socket.removeAllListeners('game:start');
+            });
         }]);
 
 var modalInstanceWaitingPlayer = function ($scope, $modalInstance) {

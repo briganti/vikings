@@ -279,7 +279,6 @@ game.prototype.getContiguousCells = function(cellid){
 
 /* Game - Fight - Get attacking values  ************************************************************/
 game.prototype.getAttackValues = function(board) {
-    console.log(board);
     var card = board.card,
         result = { 'top' : card.top, 'right': card.right, 'bottom': card.bottom, 'left': card.left};
     

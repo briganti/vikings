@@ -4,7 +4,7 @@
 var player   = require('./player.js');
 var game     = require('./game.js');
 var utility  = require('./utility.js');
-var uuid = require('node-uuid');
+var uuid     = require('node-uuid');
 
 /**
  * Constructor
@@ -17,7 +17,6 @@ var main = {
 
 /* Create a player ******************************************************************************/
 main.setPlayer = function(id, name) {
-    console.log('set player '+name);
     var p = new player(id, name);
     this.players.push(p);
 };
@@ -35,7 +34,6 @@ main.getPlayer = function(id) {
 };
 /* remove a player ******************************************************************************/
 main.removePlayer = function(id) {
-    console.log('WHATWHATWHATWHATWHATWHATWHAT');
     //For all stored players
     for(var i = 0; i < this.players.length; i++){
         //found

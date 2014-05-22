@@ -106,15 +106,14 @@ footer {
     z-index: 3;
 }
 .modal {
-  bottom: 0;
-  display: none;
-  left: 0;
-  overflow-x: auto;
-  overflow-y: scroll;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1040;
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow:hidden;
+    z-index: 1040;
 }
 .modal-backdrop {
   background-color: #000000;

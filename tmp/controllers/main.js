@@ -8,8 +8,6 @@ var mainController = {};
 
 /* User connect to server ***********************************************************************/
 mainController.connect = function(socket, session) {
-    console.log('==Connected==');
-
     //Get player
     var p1 = main.getPlayer(session.user.id);
 
@@ -44,7 +42,6 @@ mainController.connect = function(socket, session) {
 
 /* User disconnect from server ******************************************************************/
 mainController.disconnect = function(socket, session) {
-    console.log('==Disconnected==');
     //Check player status whether she is in table or game
     var p1 = main.getPlayer(session.user.id);
 
@@ -71,7 +68,6 @@ mainController.disconnect = function(socket, session) {
 
                 //guest => destroy session
                 if(p1.type == 'guest') {
-                    console.log('main.js removePlayer');
                     main.removePlayer(p1.id);
                     session.destroy();
                 } else {
@@ -118,7 +114,6 @@ mainController.libraryGet = function(socket, session) {
  * Profile : save user deck
  */
 mainController.librarySaveDeck = function(socket, session, data) {
-    console.log('das');
     var p1 = main.getPlayer(session.user.id);
     p1.deck = data.deck;
 };
