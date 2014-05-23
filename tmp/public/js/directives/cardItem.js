@@ -76,6 +76,8 @@ angular.module('vikings')
                         if(content.drag) {
                             element.find('img').attr('drag', '');
                             element.find('img').attr("draggable", "true");
+                        }else {
+                            element.find('img').attr("draggable", "false");
                         }
 
                         //Animations

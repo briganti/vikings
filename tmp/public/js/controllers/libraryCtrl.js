@@ -60,7 +60,7 @@ angular.module('vikings')
             $scope.libraryCards = Auth.getLibrary();
 
             //For all cards in library
-            for(var i = 0; i < $scope.libraryCards.length; i++) {
+            for(var i = 0, ln = $scope.libraryCards.length; i < ln; i++) {
                 //activate drag if nor selected in deck
                 if(!$scope.isCardInDeck($scope.libraryCards[i].id)) {
                     $scope.libraryCards[i].drag = true;
@@ -74,18 +74,12 @@ angular.module('vikings')
                 $scope.deckCards[cellId] = {id : libraryCard.id};
                 $scope.$apply();
             }
-            $scope.dropHandler = $rootScope.$on('dropEvent', function (evt, dragged, dropped) {
-                var libraryCard = $scope.getCardById(dragged);
-                libraryCard.drag = false;
-                $scope.deckCards[dropped] = {id : libraryCard.id};
-                $scope.$apply();
-            });
 
             //Removing a card from deck
             $scope.resetDragHandler = $rootScope.$on('resetdragEvent', function (evt, dragged) {
                 $scope.getCardById(dragged).drag = true;
                 //For all cards in deck
-                for(var i = 0; i < $scope.deckCards.length; i++) {
+                for(var i = 0, ln = $scope.deckCards.length; i < ln; i++) {
                     //found => remove card
                     if($scope.deckCards[i] !== null && $scope.deckCards[i].id == dragged) {
                         $scope.deckCards[i] = null;
