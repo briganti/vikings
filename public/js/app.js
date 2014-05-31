@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap', 'ngAnimate']).
+angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap']).
     config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
         var access = routingConfig.accessLevels;

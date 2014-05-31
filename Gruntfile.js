@@ -48,15 +48,15 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     require : ['susy', 'animation'],
-                    sassDir : '<%= RESSOURCE_PATH %>' + 'public/css/sass',
-                    cssDir  : '<%= DEVELOPMENT_PATH %>' + 'public/css'
+                    sassDir : '<%= BASE_PATH %>' + 'public/css/sass',
+                    cssDir  : '<%= BASE_PATH %>' + 'public/css'
                 }
             },
             prod: {
                 options: {
                     require     : ['susy', 'animation'],
-                    sassDir     : '<%= RESSOURCE_PATH %>' + 'public/css/sass',
-                    cssDir      : '<%= PRODUCTION_PATH %>' + 'public/css',
+                    sassDir     : '<%= BASE_PATH %>' + 'public/css/sass',
+                    cssDir      : '<%= BASE_PATH %>' + 'public/css',
                     outputStyle : 'compressed'
                 }
             }
@@ -152,6 +152,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-preprocess');
 
     /* Tasks */
-    grunt.registerTask('default', ['clean:dev', 'copy:dev', 'compass:dev', 'preprocess:dev']);
+    grunt.registerTask('default', [/*'clean:dev', 'copy:dev',*/ 'compass:dev', /*'preprocess:dev'*/]);
     grunt.registerTask('build', ['clean:prod', 'copy:prod', 'compass:prod', 'preprocess:prod', 'concat:prod', /*'uglify:prod',*/ 'clean:prodDone']);
 };

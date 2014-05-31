@@ -1,0 +1,3310 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 13, sass/partials/_common.scss */
+::selection {
+  background: transparent;
+}
+
+/* line 14, sass/partials/_common.scss */
+::-moz-selection {
+  background: transparent;
+}
+
+/* line 23, sass/partials/_common.scss */
+html {
+  height: 100%;
+  border: none;
+}
+
+/* line 27, sass/partials/_common.scss */
+body {
+  position: relative;
+  padding: 40px 0 10px;
+  margin: 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  background: url("/img/back.jpg") center center;
+  background-size: 100% auto;
+}
+
+/* line 38, sass/partials/_common.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 41, sass/partials/_common.scss */
+input {
+  display: inline-block;
+  height: 20px;
+  padding: 2px 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset;
+  font-size: 12px;
+  line-height: 20px;
+  color: #555;
+  vertical-align: middle;
+}
+
+/* line 54, sass/partials/_common.scss */
+button {
+  display: inline-block;
+  height: 26px;
+  padding: 2px 5px;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0 inset, rgba(0, 0, 0, 0.5) 0px 1px 2px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0 inset, rgba(0, 0, 0, 0.5) 0px 1px 2px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0 inset, rgba(0, 0, 0, 0.5) 0px 1px 2px;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, #e6e6e6));
+  background-image: -webkit-linear-gradient(bottom, #ffffff, #e6e6e6);
+  background-image: -moz-linear-gradient(bottom, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(bottom, #ffffff, #e6e6e6);
+  background-image: linear-gradient(bottom, #ffffff, #e6e6e6);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #333;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* line 70, sass/partials/_common.scss */
+button:disabled {
+  color: graytext;
+  opacity: 0.5;
+}
+
+/* line 74, sass/partials/_common.scss */
+.header, #hp-content > div h2, #lobby-chat h5, #lobby-profile h5, #lobby-games h5, #lobby-players h5 {
+  padding: 0 12px;
+  height: 36px;
+  border-bottom: 1px solid #111;
+  line-height: 36px;
+  font-size: 18px;
+  background-color: #222;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #222222), color-stop(100%, #111111));
+  background-image: -webkit-linear-gradient(top, #222222, #111111);
+  background-image: -moz-linear-gradient(top, #222222, #111111);
+  background-image: -o-linear-gradient(top, #222222, #111111);
+  background-image: linear-gradient(top, #222222, #111111);
+  color: #fff;
+}
+
+/* line 86, sass/partials/_common.scss */
+#main {
+  *zoom: 1;
+  max-width: 94%;
+  _width: 94%;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1140px;
+}
+/* line 38, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 91, sass/partials/_common.scss */
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+/* line 93, sass/partials/_common.scss */
+footer p {
+  font-size: 11px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* line 99, sass/partials/_common.scss */
+#mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
+
+/* line 108, sass/partials/_common.scss */
+.modal {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1040;
+}
+
+/* line 118, sass/partials/_common.scss */
+.modal-backdrop {
+  background-color: #000000;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1030;
+}
+
+/* line 127, sass/partials/_common.scss */
+.fade.in {
+  opacity: 1;
+}
+
+/* line 130, sass/partials/_common.scss */
+.modal-backdrop.in {
+  opacity: 0.5;
+}
+
+/* line 1, sass/partials/_navbar.scss */
+#navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #222222), color-stop(100%, #111111));
+  background-image: -webkit-linear-gradient(top, #222222, #111111);
+  background-image: -moz-linear-gradient(top, #222222, #111111);
+  background-image: -o-linear-gradient(top, #222222, #111111);
+  background-image: linear-gradient(top, #222222, #111111);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
+  border-bottom: 1px solid #252525;
+}
+/* line 10, sass/partials/_navbar.scss */
+#navbar > div {
+  *zoom: 1;
+  max-width: 94%;
+  _width: 94%;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1140px;
+}
+/* line 38, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#navbar > div:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 13, sass/partials/_navbar.scss */
+#navbar > div .brand {
+  width: 23.40426%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 20px 10px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #999;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0;
+}
+/* line 24, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse {
+  width: 74.46809%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+}
+/* line 26, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse ul {
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 34, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse ul li {
+  float: left;
+}
+/* line 36, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse ul li a {
+  display: block;
+  padding: 10px 15px 10px;
+  -webkit-box-shadow: rgba(0, 3, 8, 0.125) 0px 1px 10px inset;
+  -moz-box-shadow: rgba(0, 3, 8, 0.125) 0px 1px 10px inset;
+  box-shadow: rgba(0, 3, 8, 0.125) 0px 1px 10px inset;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0;
+  color: #555;
+}
+/* line 43, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse ul li.active a {
+  color: #fff;
+  background-color: #111;
+}
+/* line 49, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse form {
+  *zoom: 1;
+  max-width: 94%;
+  _width: 94%;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  float: right;
+}
+/* line 38, ../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#navbar > div .nav-collapse form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 52, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse form input {
+  margin-top: 5px;
+  height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 40.42553%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+}
+/* line 58, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse form button {
+  margin-top: 5px;
+  height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 14.89362%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+}
+
+/* line 1, sass/partials/_home.scss */
+#hp-carousel {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  height: 300px;
+  margin: 20px 0;
+  background: url("/img/hp.jpg") center left no-repeat white;
+  background-size: 50% auto;
+  background-clip: padding-box;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* line 9, sass/partials/_home.scss */
+#hp-carousel > div {
+  position: relative;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+}
+/* line 14, sass/partials/_home.scss */
+#hp-carousel > div h1 {
+  padding: 40px;
+  font-size: 42px;
+  letter-spacing: -1px;
+}
+/* line 19, sass/partials/_home.scss */
+#hp-carousel > div p {
+  padding: 0px 40px 20px;
+}
+/* line 22, sass/partials/_home.scss */
+#hp-carousel > div a {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  height: 30px;
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+  background-color: #ffb515;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 0 inset;
+  -moz-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 0 inset;
+  box-shadow: rgba(255, 255, 255, 0.5) 0 1px 0 inset;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+  color: white;
+  line-height: 30px;
+  font-size: 28px;
+  vertical-align: middle;
+}
+
+/* line 42, sass/partials/_home.scss */
+#hp-content {
+  padding-bottom: 20px;
+  overflow: auto;
+}
+/* line 45, sass/partials/_home.scss */
+#hp-content > div {
+  width: 31.91489%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 220px;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+}
+/* line 54, sass/partials/_home.scss */
+#hp-content > div p {
+  margin: 20px;
+}
+/* line 57, sass/partials/_home.scss */
+#hp-content > div a {
+  float: right;
+  color: #16274a;
+  text-decoration: underline;
+}
+/* line 63, sass/partials/_home.scss */
+#hp-content > div:last-child {
+  width: 31.91489%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+}
+
+/* line 1, sass/partials/_login.scss */
+#login-banner {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  padding: 20px 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 4;
+}
+/* line 9, sass/partials/_login.scss */
+#login-banner div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 1140px;
+  padding-left: 570px;
+  margin: 0 auto;
+}
+/* line 14, sass/partials/_login.scss */
+#login-banner div h1 {
+  font-size: 24px;
+  line-height: 1.2em;
+  color: #fff;
+}
+/* line 19, sass/partials/_login.scss */
+#login-banner div p {
+  font-size: 14px;
+  line-height: 1.2em;
+  color: #fff;
+}
+
+/* line 27, sass/partials/_login.scss */
+#login-content {
+  width: 360px;
+  padding: 16px;
+  margin: 160px auto 60px;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 33, sass/partials/_login.scss */
+#login-content > ul {
+  height: 38px;
+}
+/* line 35, sass/partials/_login.scss */
+#login-content > ul li {
+  float: left;
+  width: 120px;
+  height: 36px;
+  border-bottom: 2px solid #000;
+  background-color: #333;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #222222), color-stop(100%, #111111));
+  background-image: -webkit-linear-gradient(top, #222222, #111111);
+  background-image: -moz-linear-gradient(top, #222222, #111111);
+  background-image: -o-linear-gradient(top, #222222, #111111);
+  background-image: linear-gradient(top, #222222, #111111);
+  text-align: center;
+  line-height: 36px;
+  cursor: pointer;
+}
+/* line 45, sass/partials/_login.scss */
+#login-content > ul li a {
+  display: block;
+  color: #fff;
+}
+/* line 49, sass/partials/_login.scss */
+#login-content > ul li.active {
+  border-bottom: 2px solid #fff;
+  background-image: none;
+  background-color: #fff;
+  cursor: default;
+}
+/* line 54, sass/partials/_login.scss */
+#login-content > ul li.active a {
+  color: #000;
+}
+/* line 61, sass/partials/_login.scss */
+#login-content form fieldset {
+  padding: 20px;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  background-color: #fff;
+}
+/* line 65, sass/partials/_login.scss */
+#login-content form fieldset label {
+  display: inline-block;
+  width: 120px;
+  margin-bottom: 5px;
+}
+/* line 70, sass/partials/_login.scss */
+#login-content form fieldset input {
+  display: inline-block;
+  width: 180px;
+  margin-bottom: 10px;
+}
+/* line 75, sass/partials/_login.scss */
+#login-content form fieldset .error {
+  height: 16px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: red;
+}
+/* line 81, sass/partials/_login.scss */
+#login-content form fieldset button {
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 1, sass/partials/_lobby.scss */
+#lobby-content {
+  margin: 20px 0;
+  overflow: auto;
+}
+
+/* line 6, sass/partials/_lobby.scss */
+#lobby-chat {
+  position: relative;
+  width: 23.40426%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+}
+/* line 12, sass/partials/_lobby.scss */
+#lobby-chat #lobby-chat-content {
+  height: 544px;
+  margin: 0;
+  padding: 2px 0 20px 2px;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  overflow: auto;
+}
+/* line 19, sass/partials/_lobby.scss */
+#lobby-chat #lobby-chat-content li {
+  position: relative;
+  padding: 5px 5px 15px;
+  font-size: 12px;
+  line-height: 1.4em;
+}
+/* line 24, sass/partials/_lobby.scss */
+#lobby-chat #lobby-chat-content li:nth-child(odd) {
+  background: #E6E6E6;
+}
+/* line 27, sass/partials/_lobby.scss */
+#lobby-chat #lobby-chat-content li strong {
+  font-weight: bold;
+}
+/* line 30, sass/partials/_lobby.scss */
+#lobby-chat #lobby-chat-content li span {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  font-size: 10px;
+  line-height: 1em;
+  color: #666;
+}
+/* line 40, sass/partials/_lobby.scss */
+#lobby-chat #lobby-chat-input {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: calc(100% - 98px);
+}
+/* line 46, sass/partials/_lobby.scss */
+#lobby-chat > button {
+  position: absolute;
+  bottom: 6px;
+  right: 5px;
+  width: 70px;
+}
+
+/* line 54, sass/partials/_lobby.scss */
+#lobby-other {
+  width: 74.46809%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+  height: 603px;
+  overflow: hidden;
+}
+
+/* line 60, sass/partials/_lobby.scss */
+#lobby-profile {
+  margin-bottom: 20px;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+}
+
+/* line 68, sass/partials/_lobby.scss */
+#lobby-profile-min {
+  position: relative;
+  height: 80px;
+  padding: 20px 120px;
+}
+/* line 72, sass/partials/_lobby.scss */
+#lobby-profile-min > img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+/* line 77, sass/partials/_lobby.scss */
+#lobby-profile-min > p {
+  height: 30px;
+  line-height: 22px;
+  font-size: 22px;
+  text-shadow: 1px 1px 2px #ccc;
+}
+/* line 83, sass/partials/_lobby.scss */
+#lobby-profile-min > ul {
+  float: left;
+  height: 50px;
+}
+/* line 86, sass/partials/_lobby.scss */
+#lobby-profile-min > ul li {
+  float: left;
+  height: 50px;
+  margin-right: 5px;
+}
+/* line 90, sass/partials/_lobby.scss */
+#lobby-profile-min > ul li:last-child {
+  margin-right: 12px;
+}
+/* line 93, sass/partials/_lobby.scss */
+#lobby-profile-min > ul li img {
+  height: 100%;
+}
+/* line 98, sass/partials/_lobby.scss */
+#lobby-profile-min > button {
+  float: left;
+  margin-top: 12px;
+}
+
+/* line 103, sass/partials/_lobby.scss */
+#lobby-profile-max {
+  padding: 20px;
+}
+/* line 105, sass/partials/_lobby.scss */
+#lobby-profile-max > .ui-draggable {
+  display: block;
+  height: 120px;
+}
+/* line 108, sass/partials/_lobby.scss */
+#lobby-profile-max > .ui-draggable img {
+  height: 100%;
+}
+/* line 112, sass/partials/_lobby.scss */
+#lobby-profile-max #lobby-profile-save {
+  float: right;
+  background-image: none;
+  background-color: #ffb515;
+  color: #fff;
+}
+
+/* line 120, sass/partials/_lobby.scss */
+#lobby-profile-library {
+  position: relative;
+  margin-bottom: 20px;
+}
+/* line 123, sass/partials/_lobby.scss */
+#lobby-profile-library h6 {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  z-index: 2;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 131, sass/partials/_lobby.scss */
+#lobby-profile-library > ul {
+  position: relative;
+  height: 290px;
+  margin-right: 215px;
+}
+/* line 135, sass/partials/_lobby.scss */
+#lobby-profile-library > ul > li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+/* line 141, sass/partials/_lobby.scss */
+#lobby-profile-library > ul > li h7 {
+  display: block;
+  height: 30px;
+  padding: 0 20px 0 370px;
+  border: 1px solid #aaa;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #bbbbbb));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #bbbbbb);
+  background-image: -moz-linear-gradient(top, #eeeeee, #bbbbbb);
+  background-image: -o-linear-gradient(top, #eeeeee, #bbbbbb);
+  background-image: linear-gradient(top, #eeeeee, #bbbbbb);
+  line-height: 34px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+/* line 153, sass/partials/_lobby.scss */
+#lobby-profile-library > ul > li > ul {
+  position: absolute;
+  top: 32px;
+  height: 260px;
+  width: 100%;
+  padding: 15px 5px;
+  border: 1px solid #aaa;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+}
+/* line 162, sass/partials/_lobby.scss */
+#lobby-profile-library > ul > li > ul > li {
+  display: block;
+  float: left;
+  height: 100px;
+  margin: 5px;
+}
+/* line 167, sass/partials/_lobby.scss */
+#lobby-profile-library > ul > li > ul > li img {
+  height: 100%;
+  -webkit-filter: grayscale(80%);
+  cursor: default;
+  opacity: 0.6;
+}
+/* line 172, sass/partials/_lobby.scss */
+#lobby-profile-library > ul > li > ul > li img[drag] {
+  -webkit-filter: grayscale(0%);
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 183, sass/partials/_lobby.scss */
+#lobby-profile-library .prev, #lobby-profile-library .next {
+  position: absolute;
+  top: 6px;
+  left: 370px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* line 192, sass/partials/_lobby.scss */
+#lobby-profile-library .prev:hover, #lobby-profile-library .next:hover {
+  color: #ffb515;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+/* line 197, sass/partials/_lobby.scss */
+#lobby-profile-library .next {
+  left: auto;
+  right: 235px;
+}
+
+/* line 204, sass/partials/_lobby.scss */
+#lobby-profile-preview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 195px;
+  height: 292px;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 213, sass/partials/_lobby.scss */
+#lobby-profile-preview img {
+  height: 100%;
+}
+
+/* line 218, sass/partials/_lobby.scss */
+#lobby-profile-deck {
+  margin-bottom: 20px;
+}
+/* line 220, sass/partials/_lobby.scss */
+#lobby-profile-deck h6 {
+  display: block;
+  height: 22px;
+  padding: 8px 20px 0 20px;
+  border: 1px solid #aaa;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #bbbbbb));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #bbbbbb);
+  background-image: -moz-linear-gradient(top, #eeeeee, #bbbbbb);
+  background-image: -o-linear-gradient(top, #eeeeee, #bbbbbb);
+  background-image: linear-gradient(top, #eeeeee, #bbbbbb);
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+/* line 230, sass/partials/_lobby.scss */
+#lobby-profile-deck ul {
+  height: 134px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #aaa;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 100px 50px inset;
+  text-align: center;
+}
+/* line 238, sass/partials/_lobby.scss */
+#lobby-profile-deck ul li {
+  position: relative;
+  display: inline-block;
+  height: 100px;
+  width: 67px;
+  margin: 5px;
+  border: 1px solid #000;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #666;
+}
+/* line 247, sass/partials/_lobby.scss */
+#lobby-profile-deck ul li .dropping {
+  background-color: #999;
+}
+/* line 250, sass/partials/_lobby.scss */
+#lobby-profile-deck ul li div {
+  height: 100%;
+}
+/* line 252, sass/partials/_lobby.scss */
+#lobby-profile-deck ul li div img {
+  display: block;
+  height: 100%;
+}
+/* line 258, sass/partials/_lobby.scss */
+#lobby-profile-deck ul li :last-child {
+  margin-right: 0px;
+}
+/* line 261, sass/partials/_lobby.scss */
+#lobby-profile-deck ul li span {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  display: block;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #fff;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+  border-radius: 9px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff0000), color-stop(100%, #990000));
+  background-image: -webkit-linear-gradient(top, #ff0000, #990000);
+  background-image: -moz-linear-gradient(top, #ff0000, #990000);
+  background-image: -o-linear-gradient(top, #ff0000, #990000);
+  background-image: linear-gradient(top, #ff0000, #990000);
+  -webkit-box-shadow: #666666 0px 0px 2px 0px;
+  -moz-box-shadow: #666666 0px 0px 2px 0px;
+  box-shadow: #666666 0px 0px 2px 0px;
+  color: #fff;
+  text-align: center;
+  font-family: "Tahoma", Helvetica, sans-serif;
+  line-height: 1em;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 284, sass/partials/_lobby.scss */
+#lobby-games {
+  position: relative;
+  width: 48.93617%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+}
+/* line 292, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content {
+  height: 367px;
+  margin: 0;
+  padding: 2px 2px 20px 2px;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  overflow: auto;
+}
+/* line 299, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li {
+  padding: 1px 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+/* line 303, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li:nth-child(odd) {
+  background: #E6F2FF;
+}
+/* line 306, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li:hover {
+  background-color: #4E8DCC;
+}
+/* line 309, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li.selected {
+  color: #fff;
+  background-color: #778899;
+}
+/* line 313, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li a {
+  display: block;
+  overflow: auto;
+}
+/* line 316, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li a span {
+  width: 74.46809%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+}
+/* line 318, sass/partials/_lobby.scss */
+#lobby-games #lobby-games-content li a span:last-child {
+  width: 23.40426%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+}
+/* line 325, sass/partials/_lobby.scss */
+#lobby-games button {
+  position: absolute;
+  bottom: 6px;
+  left: 5px;
+  width: 70px;
+}
+/* line 330, sass/partials/_lobby.scss */
+#lobby-games button:last-child {
+  left: 80px;
+}
+
+/* line 336, sass/partials/_lobby.scss */
+#lobby-players {
+  width: 48.93617%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+}
+/* line 343, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content {
+  height: 367px;
+  margin: 0;
+  padding: 2px 0 20px 2px;
+  background-color: #fff;
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  overflow: auto;
+}
+/* line 350, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li {
+  padding: 1px 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+/* line 354, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li:nth-child(odd) {
+  background: #E6F2FF;
+}
+/* line 357, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li:hover {
+  background-color: #4E8DCC;
+}
+/* line 360, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li.selected {
+  color: #fff;
+  background-color: #778899;
+}
+/* line 364, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li a {
+  display: block;
+  overflow: auto;
+}
+/* line 367, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li a span {
+  width: 74.46809%;
+  float: left;
+  margin-right: 2.12766%;
+  display: inline;
+}
+/* line 369, sass/partials/_lobby.scss */
+#lobby-players #lobby-players-content li a span:last-child {
+  width: 23.40426%;
+  float: right;
+  margin-right: 0;
+  *margin-left: -2%;
+  display: inline;
+}
+
+/* line 1, sass/partials/_popin.scss */
+.popin {
+  position: fixed;
+  left: calc(50% - 178px);
+  top: calc(50% - 90px);
+  width: 356px;
+  height: 180px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 10;
+}
+/* line 10, sass/partials/_popin.scss */
+.popin h6 {
+  display: block;
+  width: 100%;
+  background-color: #333;
+  font-size: 21px;
+  line-height: 40px;
+  color: #fff;
+  text-indent: 10px;
+}
+/* line 19, sass/partials/_popin.scss */
+.popin .content {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+/* line 23, sass/partials/_popin.scss */
+.popin .content button {
+  margin-top: 20px;
+}
+
+/* line 29, sass/partials/_popin.scss */
+#gameoverwin {
+  left: calc(50% - 178px);
+  top: calc(50% - 115px);
+  width: 356px;
+  height: 230px;
+}
+/* line 34, sass/partials/_popin.scss */
+#gameoverwin .content {
+  padding-right: 140px;
+}
+/* line 36, sass/partials/_popin.scss */
+#gameoverwin .content p {
+  padding-top: 20px;
+}
+/* line 39, sass/partials/_popin.scss */
+#gameoverwin .content .cardHeader {
+  position: absolute;
+  right: 10px;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 16px;
+  color: Orange;
+  top: 10px;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
+}
+/* line 49, sass/partials/_popin.scss */
+#gameoverwin .content img {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 100px;
+}
+/* line 55, sass/partials/_popin.scss */
+#gameoverwin .content button {
+  margin-top: 40px;
+}
+
+/* line 61, sass/partials/_popin.scss */
+#viewcard {
+  left: calc(50% - 150px);
+  top: calc(50% - 225px);
+  width: 300px;
+  height: 450px;
+}
+/* line 66, sass/partials/_popin.scss */
+#viewcard .close {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  display: block;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #fff;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+  border-radius: 9px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff0000), color-stop(100%, #990000));
+  background-image: -webkit-linear-gradient(top, #ff0000, #990000);
+  background-image: -moz-linear-gradient(top, #ff0000, #990000);
+  background-image: -o-linear-gradient(top, #ff0000, #990000);
+  background-image: linear-gradient(top, #ff0000, #990000);
+  -webkit-box-shadow: #666666 0px 0px 2px 0px;
+  -moz-box-shadow: #666666 0px 0px 2px 0px;
+  box-shadow: #666666 0px 0px 2px 0px;
+  color: #fff;
+  text-align: center;
+  font-family: "Tahoma", Helvetica, sans-serif;
+  line-height: 1em;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* line 1, sass/partials/_game.scss */
+#game-content {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+}
+
+/* line 6, sass/partials/_game.scss */
+#game-view {
+  height: 700px;
+  width: 700px;
+  margin: 0 auto;
+  -webkit-transform: translateY(-100px) rotateX(35deg);
+  -moz-transform: translateY(-100px) rotateX(35deg);
+  -ms-transform: translateY(-100px) rotateX(35deg);
+  -o-transform: translateY(-100px) rotateX(35deg);
+  transform: translateY(-100px) rotateX(35deg);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* line 12, sass/partials/_game.scss */
+#game-view div.player-zone, #game-view div.opponent-zone {
+  position: relative;
+  height: 150px;
+  width: 100%;
+}
+/* line 16, sass/partials/_game.scss */
+#game-view div.player-zone .bin, #game-view div.opponent-zone .bin {
+  position: absolute;
+  top: 22px;
+  height: 105px;
+  width: 70px;
+  background: url("/img/cards/bin.png") left top no-repeat;
+  background-size: 100% auto;
+}
+/* line 23, sass/partials/_game.scss */
+#game-view div.player-zone .bin.ui-state-hover, #game-view div.opponent-zone .bin.ui-state-hover {
+  -webkit-box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+  -moz-box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+  box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+}
+/* line 27, sass/partials/_game.scss */
+#game-view div.player-zone .deck, #game-view div.opponent-zone .deck {
+  position: absolute;
+  top: 22px;
+  height: 105px;
+  width: 70px;
+}
+/* line 32, sass/partials/_game.scss */
+#game-view div.player-zone .deck li, #game-view div.opponent-zone .deck li {
+  position: absolute;
+  height: 105px;
+  width: 70px;
+  background: url("/img/cards/back.png") left top no-repeat;
+  background-size: 100% auto;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(0), #game-view div.opponent-zone .deck li:nth-child(0) {
+  top: -0px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(1), #game-view div.opponent-zone .deck li:nth-child(1) {
+  top: -2px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(2), #game-view div.opponent-zone .deck li:nth-child(2) {
+  top: -4px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(3), #game-view div.opponent-zone .deck li:nth-child(3) {
+  top: -6px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(4), #game-view div.opponent-zone .deck li:nth-child(4) {
+  top: -8px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(5), #game-view div.opponent-zone .deck li:nth-child(5) {
+  top: -10px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(6), #game-view div.opponent-zone .deck li:nth-child(6) {
+  top: -12px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(7), #game-view div.opponent-zone .deck li:nth-child(7) {
+  top: -14px;
+}
+/* line 40, sass/partials/_game.scss */
+#game-view div.player-zone .deck li:nth-child(8), #game-view div.opponent-zone .deck li:nth-child(8) {
+  top: -16px;
+}
+/* line 45, sass/partials/_game.scss */
+#game-view div.player-zone .deck li img, #game-view div.opponent-zone .deck li img {
+  height: 100%;
+}
+/* line 50, sass/partials/_game.scss */
+#game-view div.player-zone .hand, #game-view div.opponent-zone .hand {
+  position: absolute;
+  top: 19px;
+  left: 114px;
+  height: 111px;
+  right: 114px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+/* line 59, sass/partials/_game.scss */
+#game-view div.player-zone .hand li, #game-view div.opponent-zone .hand li {
+  position: relative;
+  display: inline-block;
+  height: 105px;
+  width: 70px;
+  padding: 3px;
+  margin: 0 7px;
+  z-index: 10;
+}
+/* line 70, sass/partials/_game.scss */
+#game-view div.player-zone .hand li.selected, #game-view div.opponent-zone .hand li.selected {
+  -webkit-animation: cardsShadowSelected 4s infinite;
+  -moz-animation: cardsShadowSelected 4s infinite;
+  -ms-animation: cardsShadowSelected 4s infinite;
+  -o-animation: cardsShadowSelected 4s infinite;
+  animation: cardsShadowSelected 4s infinite;
+}
+/* line 72, sass/partials/_game.scss */
+#game-view div.player-zone .hand li.selected .spark, #game-view div.opponent-zone .hand li.selected .spark {
+  position: absolute;
+  display: block;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 6px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 6px 1px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 6px 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-animation: cardsShadowSelectedLight 4s linear infinite;
+  -moz-animation: cardsShadowSelectedLight 4s linear infinite;
+  -ms-animation: cardsShadowSelectedLight 4s linear infinite;
+  -o-animation: cardsShadowSelectedLight 4s linear infinite;
+  animation: cardsShadowSelectedLight 4s linear infinite;
+}
+/* line 80, sass/partials/_game.scss */
+#game-view div.player-zone .hand li > div, #game-view div.opponent-zone .hand li > div {
+  position: absolute;
+  left: 27px;
+  display: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9px;
+  border: 1px solid #111;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px inset, rgba(0, 0, 0, 0.3) 1px 1px 1px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px inset, rgba(0, 0, 0, 0.3) 1px 1px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px inset, rgba(0, 0, 0, 0.3) 1px 1px 1px 0px;
+  cursor: pointer;
+}
+/* line 90, sass/partials/_game.scss */
+#game-view div.player-zone .hand li > div:hover, #game-view div.opponent-zone .hand li > div:hover {
+  border: 1px solid #333;
+  background-color: #666;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 2px inset, rgba(0, 0, 0, 0.3) 1px 1px 1px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 2px inset, rgba(0, 0, 0, 0.3) 1px 1px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 2px inset, rgba(0, 0, 0, 0.3) 1px 1px 1px 0px;
+}
+/* line 96, sass/partials/_game.scss */
+#game-view div.player-zone .hand li:hover > div, #game-view div.opponent-zone .hand li:hover > div {
+  display: block;
+}
+/* line 99, sass/partials/_game.scss */
+#game-view div.player-zone .hand li > .btn-view, #game-view div.opponent-zone .hand li > .btn-view {
+  top: 46px;
+  background: url(/img/btn-eye.png) center center no-repeat #444444;
+}
+/* line 103, sass/partials/_game.scss */
+#game-view div.player-zone .hand li > .btn-buff, #game-view div.opponent-zone .hand li > .btn-buff {
+  top: 26px;
+  background: url(/img/btn-hand.png) center center no-repeat #444444;
+}
+/* line 107, sass/partials/_game.scss */
+#game-view div.player-zone .hand li > .btn-cast, #game-view div.opponent-zone .hand li > .btn-cast {
+  top: 26px;
+  background: url(/img/btn-hand.png) center center no-repeat #444444;
+}
+/* line 111, sass/partials/_game.scss */
+#game-view div.player-zone .hand li > .btn-cast + .btn-view, #game-view div.opponent-zone .hand li > .btn-cast + .btn-view {
+  top: 66px;
+}
+/* line 115, sass/partials/_game.scss */
+#game-view div.player-zone .hand li img, #game-view div.opponent-zone .hand li img {
+  height: 100%;
+}
+/* line 121, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck, #game-view div.opponent-zone:first-child .deck {
+  left: 22px;
+}
+/* line 123, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li, #game-view div.opponent-zone:first-child .deck li {
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(0), #game-view div.opponent-zone:first-child .deck li:nth-child(0) {
+  left: -0px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(1), #game-view div.opponent-zone:first-child .deck li:nth-child(1) {
+  left: -1px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(2), #game-view div.opponent-zone:first-child .deck li:nth-child(2) {
+  left: -2px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(3), #game-view div.opponent-zone:first-child .deck li:nth-child(3) {
+  left: -3px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(4), #game-view div.opponent-zone:first-child .deck li:nth-child(4) {
+  left: -4px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(5), #game-view div.opponent-zone:first-child .deck li:nth-child(5) {
+  left: -5px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(6), #game-view div.opponent-zone:first-child .deck li:nth-child(6) {
+  left: -6px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(7), #game-view div.opponent-zone:first-child .deck li:nth-child(7) {
+  left: -7px;
+}
+/* line 127, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .deck li:nth-child(8), #game-view div.opponent-zone:first-child .deck li:nth-child(8) {
+  left: -8px;
+}
+/* line 134, sass/partials/_game.scss */
+#game-view div.player-zone:first-child .bin, #game-view div.opponent-zone:first-child .bin {
+  right: 22px;
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+/* line 140, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck, #game-view div.opponent-zone:last-child .deck {
+  right: 22px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(0), #game-view div.opponent-zone:last-child .deck li:nth-child(0) {
+  right: -0px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(1), #game-view div.opponent-zone:last-child .deck li:nth-child(1) {
+  right: -1px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(2), #game-view div.opponent-zone:last-child .deck li:nth-child(2) {
+  right: -2px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(3), #game-view div.opponent-zone:last-child .deck li:nth-child(3) {
+  right: -3px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(4), #game-view div.opponent-zone:last-child .deck li:nth-child(4) {
+  right: -4px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(5), #game-view div.opponent-zone:last-child .deck li:nth-child(5) {
+  right: -5px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(6), #game-view div.opponent-zone:last-child .deck li:nth-child(6) {
+  right: -6px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(7), #game-view div.opponent-zone:last-child .deck li:nth-child(7) {
+  right: -7px;
+}
+/* line 145, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .deck li:nth-child(8), #game-view div.opponent-zone:last-child .deck li:nth-child(8) {
+  right: -8px;
+}
+/* line 152, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .bin, #game-view div.opponent-zone:last-child .bin {
+  left: 22px;
+}
+/* line 154, sass/partials/_game.scss */
+#game-view div.player-zone:last-child .bin.dropping, #game-view div.opponent-zone:last-child .bin.dropping {
+  -webkit-box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+  -moz-box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+  box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+}
+
+/* line 162, sass/partials/_game.scss */
+#game-view-board {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+/* line 166, sass/partials/_game.scss */
+#game-view-board > div {
+  height: 366px;
+  width: 366px;
+  margin: 0 auto;
+  padding-top: 16px;
+}
+/* line 171, sass/partials/_game.scss */
+#game-view-board > div .cell {
+  position: relative;
+  float: left;
+  height: 120px;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+/* line 178, sass/partials/_game.scss */
+#game-view-board > div .cell .dropping {
+  -webkit-box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+  -moz-box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+  box-shadow: rgba(250, 250, 210, 0.3) 0 0 10px 10px inset;
+}
+/* line 181, sass/partials/_game.scss */
+#game-view-board > div .cell .empty {
+  height: 120px;
+  width: 120px;
+}
+/* line 185, sass/partials/_game.scss */
+#game-view-board > div .cell .card {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+/* line 192, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+/* line 196, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div.p0 {
+  box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+}
+/* line 199, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div.p1 {
+  box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+}
+/* line 202, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div.flipped {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+/* line 205, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div.leftRotation {
+  -webkit-transform: rotateZ(-90deg);
+  -moz-transform: rotateZ(-90deg);
+  -ms-transform: rotateZ(-90deg);
+  -o-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  -webkit-transform-origin: 50% 50% 50%;
+  -moz-transform-origin: 50% 50% 50%;
+  -ms-transform-origin: 50% 50% 50%;
+  -o-transform-origin: 50% 50% 50%;
+  transform-origin: 50% 50% 50%;
+}
+/* line 209, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div.rightRotation {
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  -ms-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+  -webkit-transform-origin: 50% 50% 50%;
+  -moz-transform-origin: 50% 50% 50%;
+  -ms-transform-origin: 50% 50% 50%;
+  -o-transform-origin: 50% 50% 50%;
+  transform-origin: 50% 50% 50%;
+}
+/* line 213, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 220, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div img.back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+/* line 224, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span {
+  position: absolute;
+  width: 60px;
+  height: 45px;
+  background: url(/img/cards/ico/anim-smoke.png);
+  -webkit-animation-duration: 5s;
+  -moz-animation-duration: 5s;
+  -ms-animation-duration: 5s;
+  -o-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+/* line 233, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span:nth-of-type(1) {
+  top: 0;
+  left: 0;
+  -webkit-animation-name: animSmoke0;
+  -moz-animation-name: animSmoke0;
+  -ms-animation-name: animSmoke0;
+  -o-animation-name: animSmoke0;
+  animation-name: animSmoke0;
+  /*@include animation(animSmoke0 5s linear infinite);*/
+  /*-webkit-animation: animSmoke0 10s linear infinite;*/
+}
+/* line 240, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span:nth-of-type(2) {
+  top: 10px;
+  left: 80px;
+  -webkit-animation-name: animSmoke1;
+  -moz-animation-name: animSmoke1;
+  -ms-animation-name: animSmoke1;
+  -o-animation-name: animSmoke1;
+  animation-name: animSmoke1;
+  /*@include animation(animSmoke1 5s linear infinite);*/
+  /*-webkit-animation: animSmoke1 9s linear infinite;*/
+}
+/* line 247, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span:nth-of-type(3) {
+  top: 30px;
+  left: 20px;
+  -webkit-animation-name: animSmoke2;
+  -moz-animation-name: animSmoke2;
+  -ms-animation-name: animSmoke2;
+  -o-animation-name: animSmoke2;
+  animation-name: animSmoke2;
+  /*animation: animSmoke2 5s linear infinite;
+  -webkit-animation: animSmoke2 8s linear infinite;*/
+}
+/* line 254, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span:nth-of-type(4) {
+  top: 50px;
+  left: 60px;
+  -webkit-animation-name: animSmoke3;
+  -moz-animation-name: animSmoke3;
+  -ms-animation-name: animSmoke3;
+  -o-animation-name: animSmoke3;
+  animation-name: animSmoke3;
+  /*animation: animSmoke3 5s linear infinite;
+  -webkit-animation: animSmoke3 8s linear infinite;*/
+}
+/* line 261, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span:nth-of-type(5) {
+  top: 70px;
+  left: 10px;
+  -webkit-animation-name: animSmoke4;
+  -moz-animation-name: animSmoke4;
+  -ms-animation-name: animSmoke4;
+  -o-animation-name: animSmoke4;
+  animation-name: animSmoke4;
+  /*animation: animSmoke4 5s linear infinite;
+  -webkit-animation: animSmoke4 9s linear infinite;*/
+}
+/* line 268, sass/partials/_game.scss */
+#game-view-board > div .cell .card > div > span:nth-of-type(6) {
+  top: 80px;
+  left: 80px;
+  -webkit-animation-name: animSmoke5;
+  -moz-animation-name: animSmoke5;
+  -ms-animation-name: animSmoke5;
+  -o-animation-name: animSmoke5;
+  animation-name: animSmoke5;
+  /*animation: animSmoke5 5s linear infinite;
+  -webkit-animation: animSmoke5 10s linear infinite;*/
+}
+/* line 280, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck {
+  position: absolute;
+  top: 130px;
+  left: 50px;
+  height: 105px;
+  width: 70px;
+  margin: 0;
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  -ms-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+}
+/* line 288, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li {
+  position: absolute;
+  height: 105px;
+  width: 70px;
+  background: url("/img/cards/back.png") left top no-repeat;
+  background-size: 100% auto;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(1) {
+  top: 1px;
+  left: -2px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(2) {
+  top: 2px;
+  left: -4px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(3) {
+  top: 3px;
+  left: -6px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(4) {
+  top: 4px;
+  left: -8px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(5) {
+  top: 5px;
+  left: -10px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(6) {
+  top: 6px;
+  left: -12px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(7) {
+  top: 7px;
+  left: -14px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(8) {
+  top: 8px;
+  left: -16px;
+}
+/* line 296, sass/partials/_game.scss */
+#game-view-board #game-view-wooddeck li:nth-child(9) {
+  top: 9px;
+  left: -18px;
+}
+
+/* line 306, sass/partials/_game.scss */
+#game-playerdata, #game-opponentdata {
+  position: absolute;
+  width: 175px;
+  height: 50px;
+}
+/* line 310, sass/partials/_game.scss */
+#game-playerdata .portrait, #game-opponentdata .portrait {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 46px;
+  height: 46px;
+  border-radius: 25px;
+  border: 2px solid #eee;
+  background-image: url(/img/avatar.png);
+  background-size: 100%;
+  z-index: 2;
+}
+/* line 322, sass/partials/_game.scss */
+#game-playerdata > ul, #game-opponentdata > ul {
+  list-style: none inside none;
+}
+/* line 324, sass/partials/_game.scss */
+#game-playerdata > ul li, #game-opponentdata > ul li {
+  display: block;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #eee;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px 1px, rgba(0, 0, 0, 0.5) 0px 0px 5px 3px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px 1px, rgba(0, 0, 0, 0.5) 0px 0px 5px 3px inset;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px 1px, rgba(0, 0, 0, 0.5) 0px 0px 5px 3px inset;
+  text-align: center;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: bold;
+  color: white;
+  z-index: 3;
+  text-shadow: black 0px 0px 1px;
+}
+/* line 339, sass/partials/_game.scss */
+#game-playerdata > ul li:nth-child(1), #game-opponentdata > ul li:nth-child(1) {
+  top: 0;
+  left: 50px;
+}
+/* line 343, sass/partials/_game.scss */
+#game-playerdata > ul li:nth-child(2), #game-opponentdata > ul li:nth-child(2) {
+  top: 500;
+  left: 70px;
+}
+/* line 347, sass/partials/_game.scss */
+#game-playerdata > ul li:nth-child(3), #game-opponentdata > ul li:nth-child(3) {
+  top: 0;
+  left: 90px;
+}
+/* line 351, sass/partials/_game.scss */
+#game-playerdata > ul li:nth-child(4), #game-opponentdata > ul li:nth-child(4) {
+  top: 0;
+  left: 110px;
+}
+/* line 355, sass/partials/_game.scss */
+#game-playerdata > ul li.color1, #game-opponentdata > ul li.color1 {
+  background-color: red;
+}
+/* line 358, sass/partials/_game.scss */
+#game-playerdata > ul li.color2, #game-opponentdata > ul li.color2 {
+  background-color: white;
+}
+/* line 361, sass/partials/_game.scss */
+#game-playerdata > ul li.color3, #game-opponentdata > ul li.color3 {
+  background-color: blue;
+}
+/* line 364, sass/partials/_game.scss */
+#game-playerdata > ul li.color4, #game-opponentdata > ul li.color4 {
+  background-color: green;
+}
+/* line 369, sass/partials/_game.scss */
+#game-playerdata > span, #game-opponentdata > span {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  width: 150px;
+  height: 22px;
+  margin: 0;
+  border: 1px solid #666;
+  border-radius: 4px;
+  background-color: #eee;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px 1px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+}
+/* line 384, sass/partials/_game.scss */
+#game-playerdata > strong, #game-opponentdata > strong {
+  position: absolute;
+  right: 0px;
+  top: 17px;
+  font-size: 60px;
+  font-weight: bold;
+  opacity: 0.8;
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 2px;
+}
+/* line 394, sass/partials/_game.scss */
+#game-playerdata.p0.selected .portrait, #game-opponentdata.p0.selected .portrait {
+  box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+}
+/* line 397, sass/partials/_game.scss */
+#game-playerdata.p0 strong, #game-opponentdata.p0 strong {
+  color: CornflowerBlue;
+}
+/* line 402, sass/partials/_game.scss */
+#game-playerdata.p1.selected .portrait, #game-opponentdata.p1.selected .portrait {
+  box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+}
+/* line 405, sass/partials/_game.scss */
+#game-playerdata.p1 strong, #game-opponentdata.p1 strong {
+  color: orangered;
+}
+
+/* line 410, sass/partials/_game.scss */
+#game-playerdata {
+  top: 550px;
+  right: 0;
+}
+
+/* line 414, sass/partials/_game.scss */
+#game-opponentdata {
+  top: 0px;
+  left: 80px;
+}
+
+/* line 419, sass/partials/_game.scss */
+#game-quit {
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+@keyframes cardsShadowSelectedP0 {
+  /* line 426, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 427, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px white, inset 0px 0px 2px white;
+  }
+
+  /* line 428, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-webkit-keyframes cardsShadowSelectedP0 {
+  /* line 431, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 432, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px white, inset 0px 0px 2px white;
+  }
+
+  /* line 433, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 6px 0px cornflowerblue, 0px 0px 8px 2px cornflowerblue, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes cardsShadowSelectedP1 {
+  /* line 436, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 437, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px white, inset 0px 0px 2px white;
+  }
+
+  /* line 438, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-webkit-keyframes cardsShadowSelectedP1 {
+  /* line 441, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 442, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px white, inset 0px 0px 2px white;
+  }
+
+  /* line 443, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 6px 0px orangered, 0px 0px 8px 2px orangered, 0px 0px 2px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-moz-keyframes cardsShadowSelectedLight {
+  /* line 446, sass/partials/_game.scss */
+  0% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 447, sass/partials/_game.scss */
+  5% {
+    top: -1px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 448, sass/partials/_game.scss */
+  15% {
+    top: -1px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 449, sass/partials/_game.scss */
+  20% {
+    top: -1px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 450, sass/partials/_game.scss */
+  25% {
+    top: 15px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 451, sass/partials/_game.scss */
+  45% {
+    top: 96px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 452, sass/partials/_game.scss */
+  50% {
+    top: 112px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 453, sass/partials/_game.scss */
+  55% {
+    top: 112px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 454, sass/partials/_game.scss */
+  65% {
+    top: 112px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 455, sass/partials/_game.scss */
+  70% {
+    top: 112px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 456, sass/partials/_game.scss */
+  75% {
+    top: 96px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 457, sass/partials/_game.scss */
+  95% {
+    top: 15px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 458, sass/partials/_game.scss */
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@-webkit-keyframes cardsShadowSelectedLight {
+  /* line 446, sass/partials/_game.scss */
+  0% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 447, sass/partials/_game.scss */
+  5% {
+    top: -1px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 448, sass/partials/_game.scss */
+  15% {
+    top: -1px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 449, sass/partials/_game.scss */
+  20% {
+    top: -1px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 450, sass/partials/_game.scss */
+  25% {
+    top: 15px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 451, sass/partials/_game.scss */
+  45% {
+    top: 96px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 452, sass/partials/_game.scss */
+  50% {
+    top: 112px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 453, sass/partials/_game.scss */
+  55% {
+    top: 112px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 454, sass/partials/_game.scss */
+  65% {
+    top: 112px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 455, sass/partials/_game.scss */
+  70% {
+    top: 112px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 456, sass/partials/_game.scss */
+  75% {
+    top: 96px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 457, sass/partials/_game.scss */
+  95% {
+    top: 15px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 458, sass/partials/_game.scss */
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@-o-keyframes cardsShadowSelectedLight {
+  /* line 446, sass/partials/_game.scss */
+  0% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 447, sass/partials/_game.scss */
+  5% {
+    top: -1px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 448, sass/partials/_game.scss */
+  15% {
+    top: -1px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 449, sass/partials/_game.scss */
+  20% {
+    top: -1px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 450, sass/partials/_game.scss */
+  25% {
+    top: 15px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 451, sass/partials/_game.scss */
+  45% {
+    top: 96px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 452, sass/partials/_game.scss */
+  50% {
+    top: 112px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 453, sass/partials/_game.scss */
+  55% {
+    top: 112px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 454, sass/partials/_game.scss */
+  65% {
+    top: 112px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 455, sass/partials/_game.scss */
+  70% {
+    top: 112px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 456, sass/partials/_game.scss */
+  75% {
+    top: 96px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 457, sass/partials/_game.scss */
+  95% {
+    top: 15px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 458, sass/partials/_game.scss */
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@-ms-keyframes cardsShadowSelectedLight {
+  /* line 446, sass/partials/_game.scss */
+  0% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 447, sass/partials/_game.scss */
+  5% {
+    top: -1px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 448, sass/partials/_game.scss */
+  15% {
+    top: -1px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 449, sass/partials/_game.scss */
+  20% {
+    top: -1px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 450, sass/partials/_game.scss */
+  25% {
+    top: 15px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 451, sass/partials/_game.scss */
+  45% {
+    top: 96px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 452, sass/partials/_game.scss */
+  50% {
+    top: 112px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 453, sass/partials/_game.scss */
+  55% {
+    top: 112px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 454, sass/partials/_game.scss */
+  65% {
+    top: 112px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 455, sass/partials/_game.scss */
+  70% {
+    top: 112px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 456, sass/partials/_game.scss */
+  75% {
+    top: 96px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 457, sass/partials/_game.scss */
+  95% {
+    top: 15px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 458, sass/partials/_game.scss */
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@keyframes cardsShadowSelectedLight {
+  /* line 446, sass/partials/_game.scss */
+  0% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 447, sass/partials/_game.scss */
+  5% {
+    top: -1px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 448, sass/partials/_game.scss */
+  15% {
+    top: -1px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 449, sass/partials/_game.scss */
+  20% {
+    top: -1px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 450, sass/partials/_game.scss */
+  25% {
+    top: 15px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 451, sass/partials/_game.scss */
+  45% {
+    top: 96px;
+    left: 77px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 452, sass/partials/_game.scss */
+  50% {
+    top: 112px;
+    left: 77px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 453, sass/partials/_game.scss */
+  55% {
+    top: 112px;
+    left: 61px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 454, sass/partials/_game.scss */
+  65% {
+    top: 112px;
+    left: 15px;
+    width: 15px;
+    height: 1px;
+  }
+
+  /* line 455, sass/partials/_game.scss */
+  70% {
+    top: 112px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* line 456, sass/partials/_game.scss */
+  75% {
+    top: 96px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 457, sass/partials/_game.scss */
+  95% {
+    top: 15px;
+    left: -1px;
+    width: 1px;
+    height: 15px;
+  }
+
+  /* line 458, sass/partials/_game.scss */
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@-moz-keyframes cardsShadow {
+  /* line 463, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+
+  /* line 464, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px white, inset 0px 0px 1px white;
+  }
+
+  /* line 465, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+}
+
+@-webkit-keyframes cardsShadow {
+  /* line 463, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+
+  /* line 464, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px white, inset 0px 0px 1px white;
+  }
+
+  /* line 465, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+}
+
+@-o-keyframes cardsShadow {
+  /* line 463, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+
+  /* line 464, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px white, inset 0px 0px 1px white;
+  }
+
+  /* line 465, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+}
+
+@-ms-keyframes cardsShadow {
+  /* line 463, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+
+  /* line 464, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px white, inset 0px 0px 1px white;
+  }
+
+  /* line 465, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes cardsShadow {
+  /* line 463, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+
+  /* line 464, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px white, inset 0px 0px 1px white;
+  }
+
+  /* line 465, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  }
+}
+
+@-moz-keyframes cardsShadowSelected {
+  /* line 468, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 469, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* line 470, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-webkit-keyframes cardsShadowSelected {
+  /* line 468, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 469, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* line 470, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-o-keyframes cardsShadowSelected {
+  /* line 468, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 469, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* line 470, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-ms-keyframes cardsShadowSelected {
+  /* line 468, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 469, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* line 470, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes cardsShadowSelected {
+  /* line 468, sass/partials/_game.scss */
+  0% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+
+  /* line 469, sass/partials/_game.scss */
+  50% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* line 470, sass/partials/_game.scss */
+  100% {
+    box-shadow: inset 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px 0px lightgoldenrodyellow, 0px 0px 1px rgba(255, 255, 255, 0), inset 0px 0px 2px rgba(255, 255, 255, 0);
+  }
+}
+
+@-moz-keyframes animSmoke0 {
+  /* line 475, sass/partials/_game.scss */
+  0% {
+    top: 0;
+    left: 10px;
+  }
+
+  /* line 476, sass/partials/_game.scss */
+  50% {
+    top: 0;
+    left: 0;
+  }
+
+  /* line 477, sass/partials/_game.scss */
+  100% {
+    top: 0;
+    left: 10px;
+  }
+}
+
+@-webkit-keyframes animSmoke0 {
+  /* line 475, sass/partials/_game.scss */
+  0% {
+    top: 0;
+    left: 10px;
+  }
+
+  /* line 476, sass/partials/_game.scss */
+  50% {
+    top: 0;
+    left: 0;
+  }
+
+  /* line 477, sass/partials/_game.scss */
+  100% {
+    top: 0;
+    left: 10px;
+  }
+}
+
+@-o-keyframes animSmoke0 {
+  /* line 475, sass/partials/_game.scss */
+  0% {
+    top: 0;
+    left: 10px;
+  }
+
+  /* line 476, sass/partials/_game.scss */
+  50% {
+    top: 0;
+    left: 0;
+  }
+
+  /* line 477, sass/partials/_game.scss */
+  100% {
+    top: 0;
+    left: 10px;
+  }
+}
+
+@-ms-keyframes animSmoke0 {
+  /* line 475, sass/partials/_game.scss */
+  0% {
+    top: 0;
+    left: 10px;
+  }
+
+  /* line 476, sass/partials/_game.scss */
+  50% {
+    top: 0;
+    left: 0;
+  }
+
+  /* line 477, sass/partials/_game.scss */
+  100% {
+    top: 0;
+    left: 10px;
+  }
+}
+
+@keyframes animSmoke0 {
+  /* line 475, sass/partials/_game.scss */
+  0% {
+    top: 0;
+    left: 10px;
+  }
+
+  /* line 476, sass/partials/_game.scss */
+  50% {
+    top: 0;
+    left: 0;
+  }
+
+  /* line 477, sass/partials/_game.scss */
+  100% {
+    top: 0;
+    left: 10px;
+  }
+}
+
+@-moz-keyframes animSmoke1 {
+  /* line 480, sass/partials/_game.scss */
+  0% {
+    top: 10px;
+    left: 70px;
+  }
+
+  /* line 481, sass/partials/_game.scss */
+  50% {
+    top: 10px;
+    left: 80px;
+  }
+
+  /* line 482, sass/partials/_game.scss */
+  100% {
+    top: 10px;
+    left: 70px;
+  }
+}
+
+@-webkit-keyframes animSmoke1 {
+  /* line 480, sass/partials/_game.scss */
+  0% {
+    top: 10px;
+    left: 70px;
+  }
+
+  /* line 481, sass/partials/_game.scss */
+  50% {
+    top: 10px;
+    left: 80px;
+  }
+
+  /* line 482, sass/partials/_game.scss */
+  100% {
+    top: 10px;
+    left: 70px;
+  }
+}
+
+@-o-keyframes animSmoke1 {
+  /* line 480, sass/partials/_game.scss */
+  0% {
+    top: 10px;
+    left: 70px;
+  }
+
+  /* line 481, sass/partials/_game.scss */
+  50% {
+    top: 10px;
+    left: 80px;
+  }
+
+  /* line 482, sass/partials/_game.scss */
+  100% {
+    top: 10px;
+    left: 70px;
+  }
+}
+
+@-ms-keyframes animSmoke1 {
+  /* line 480, sass/partials/_game.scss */
+  0% {
+    top: 10px;
+    left: 70px;
+  }
+
+  /* line 481, sass/partials/_game.scss */
+  50% {
+    top: 10px;
+    left: 80px;
+  }
+
+  /* line 482, sass/partials/_game.scss */
+  100% {
+    top: 10px;
+    left: 70px;
+  }
+}
+
+@keyframes animSmoke1 {
+  /* line 480, sass/partials/_game.scss */
+  0% {
+    top: 10px;
+    left: 70px;
+  }
+
+  /* line 481, sass/partials/_game.scss */
+  50% {
+    top: 10px;
+    left: 80px;
+  }
+
+  /* line 482, sass/partials/_game.scss */
+  100% {
+    top: 10px;
+    left: 70px;
+  }
+}
+
+@-moz-keyframes animSmoke2 {
+  /* line 485, sass/partials/_game.scss */
+  0% {
+    top: 30px;
+    left: 20px;
+  }
+
+  /* line 486, sass/partials/_game.scss */
+  50% {
+    top: 30px;
+    left: 30px;
+  }
+
+  /* line 487, sass/partials/_game.scss */
+  100% {
+    top: 30px;
+    left: 20px;
+  }
+}
+
+@-webkit-keyframes animSmoke2 {
+  /* line 485, sass/partials/_game.scss */
+  0% {
+    top: 30px;
+    left: 20px;
+  }
+
+  /* line 486, sass/partials/_game.scss */
+  50% {
+    top: 30px;
+    left: 30px;
+  }
+
+  /* line 487, sass/partials/_game.scss */
+  100% {
+    top: 30px;
+    left: 20px;
+  }
+}
+
+@-o-keyframes animSmoke2 {
+  /* line 485, sass/partials/_game.scss */
+  0% {
+    top: 30px;
+    left: 20px;
+  }
+
+  /* line 486, sass/partials/_game.scss */
+  50% {
+    top: 30px;
+    left: 30px;
+  }
+
+  /* line 487, sass/partials/_game.scss */
+  100% {
+    top: 30px;
+    left: 20px;
+  }
+}
+
+@-ms-keyframes animSmoke2 {
+  /* line 485, sass/partials/_game.scss */
+  0% {
+    top: 30px;
+    left: 20px;
+  }
+
+  /* line 486, sass/partials/_game.scss */
+  50% {
+    top: 30px;
+    left: 30px;
+  }
+
+  /* line 487, sass/partials/_game.scss */
+  100% {
+    top: 30px;
+    left: 20px;
+  }
+}
+
+@keyframes animSmoke2 {
+  /* line 485, sass/partials/_game.scss */
+  0% {
+    top: 30px;
+    left: 20px;
+  }
+
+  /* line 486, sass/partials/_game.scss */
+  50% {
+    top: 30px;
+    left: 30px;
+  }
+
+  /* line 487, sass/partials/_game.scss */
+  100% {
+    top: 30px;
+    left: 20px;
+  }
+}
+
+@-moz-keyframes animSmoke3 {
+  /* line 490, sass/partials/_game.scss */
+  0% {
+    top: 50px;
+    left: 60px;
+  }
+
+  /* line 491, sass/partials/_game.scss */
+  50% {
+    top: 50px;
+    left: 50px;
+  }
+
+  /* line 492, sass/partials/_game.scss */
+  100% {
+    top: 50px;
+    left: 60px;
+  }
+}
+
+@-webkit-keyframes animSmoke3 {
+  /* line 490, sass/partials/_game.scss */
+  0% {
+    top: 50px;
+    left: 60px;
+  }
+
+  /* line 491, sass/partials/_game.scss */
+  50% {
+    top: 50px;
+    left: 50px;
+  }
+
+  /* line 492, sass/partials/_game.scss */
+  100% {
+    top: 50px;
+    left: 60px;
+  }
+}
+
+@-o-keyframes animSmoke3 {
+  /* line 490, sass/partials/_game.scss */
+  0% {
+    top: 50px;
+    left: 60px;
+  }
+
+  /* line 491, sass/partials/_game.scss */
+  50% {
+    top: 50px;
+    left: 50px;
+  }
+
+  /* line 492, sass/partials/_game.scss */
+  100% {
+    top: 50px;
+    left: 60px;
+  }
+}
+
+@-ms-keyframes animSmoke3 {
+  /* line 490, sass/partials/_game.scss */
+  0% {
+    top: 50px;
+    left: 60px;
+  }
+
+  /* line 491, sass/partials/_game.scss */
+  50% {
+    top: 50px;
+    left: 50px;
+  }
+
+  /* line 492, sass/partials/_game.scss */
+  100% {
+    top: 50px;
+    left: 60px;
+  }
+}
+
+@keyframes animSmoke3 {
+  /* line 490, sass/partials/_game.scss */
+  0% {
+    top: 50px;
+    left: 60px;
+  }
+
+  /* line 491, sass/partials/_game.scss */
+  50% {
+    top: 50px;
+    left: 50px;
+  }
+
+  /* line 492, sass/partials/_game.scss */
+  100% {
+    top: 50px;
+    left: 60px;
+  }
+}
+
+@-moz-keyframes animSmoke4 {
+  /* line 495, sass/partials/_game.scss */
+  0% {
+    top: 70px;
+    left: 10px;
+  }
+
+  /* line 496, sass/partials/_game.scss */
+  50% {
+    top: 70px;
+    left: 0;
+  }
+
+  /* line 497, sass/partials/_game.scss */
+  100% {
+    top: 70px;
+    left: 10px;
+  }
+}
+
+@-webkit-keyframes animSmoke4 {
+  /* line 495, sass/partials/_game.scss */
+  0% {
+    top: 70px;
+    left: 10px;
+  }
+
+  /* line 496, sass/partials/_game.scss */
+  50% {
+    top: 70px;
+    left: 0;
+  }
+
+  /* line 497, sass/partials/_game.scss */
+  100% {
+    top: 70px;
+    left: 10px;
+  }
+}
+
+@-o-keyframes animSmoke4 {
+  /* line 495, sass/partials/_game.scss */
+  0% {
+    top: 70px;
+    left: 10px;
+  }
+
+  /* line 496, sass/partials/_game.scss */
+  50% {
+    top: 70px;
+    left: 0;
+  }
+
+  /* line 497, sass/partials/_game.scss */
+  100% {
+    top: 70px;
+    left: 10px;
+  }
+}
+
+@-ms-keyframes animSmoke4 {
+  /* line 495, sass/partials/_game.scss */
+  0% {
+    top: 70px;
+    left: 10px;
+  }
+
+  /* line 496, sass/partials/_game.scss */
+  50% {
+    top: 70px;
+    left: 0;
+  }
+
+  /* line 497, sass/partials/_game.scss */
+  100% {
+    top: 70px;
+    left: 10px;
+  }
+}
+
+@keyframes animSmoke4 {
+  /* line 495, sass/partials/_game.scss */
+  0% {
+    top: 70px;
+    left: 10px;
+  }
+
+  /* line 496, sass/partials/_game.scss */
+  50% {
+    top: 70px;
+    left: 0;
+  }
+
+  /* line 497, sass/partials/_game.scss */
+  100% {
+    top: 70px;
+    left: 10px;
+  }
+}
+
+@-moz-keyframes animSmoke5 {
+  /* line 500, sass/partials/_game.scss */
+  0% {
+    top: 80px;
+    left: 70px;
+  }
+
+  /* line 501, sass/partials/_game.scss */
+  50% {
+    top: 80px;
+    left: 80px;
+  }
+
+  /* line 502, sass/partials/_game.scss */
+  100% {
+    top: 80px;
+    left: 70px;
+  }
+}
+
+@-webkit-keyframes animSmoke5 {
+  /* line 500, sass/partials/_game.scss */
+  0% {
+    top: 80px;
+    left: 70px;
+  }
+
+  /* line 501, sass/partials/_game.scss */
+  50% {
+    top: 80px;
+    left: 80px;
+  }
+
+  /* line 502, sass/partials/_game.scss */
+  100% {
+    top: 80px;
+    left: 70px;
+  }
+}
+
+@-o-keyframes animSmoke5 {
+  /* line 500, sass/partials/_game.scss */
+  0% {
+    top: 80px;
+    left: 70px;
+  }
+
+  /* line 501, sass/partials/_game.scss */
+  50% {
+    top: 80px;
+    left: 80px;
+  }
+
+  /* line 502, sass/partials/_game.scss */
+  100% {
+    top: 80px;
+    left: 70px;
+  }
+}
+
+@-ms-keyframes animSmoke5 {
+  /* line 500, sass/partials/_game.scss */
+  0% {
+    top: 80px;
+    left: 70px;
+  }
+
+  /* line 501, sass/partials/_game.scss */
+  50% {
+    top: 80px;
+    left: 80px;
+  }
+
+  /* line 502, sass/partials/_game.scss */
+  100% {
+    top: 80px;
+    left: 70px;
+  }
+}
+
+@keyframes animSmoke5 {
+  /* line 500, sass/partials/_game.scss */
+  0% {
+    top: 80px;
+    left: 70px;
+  }
+
+  /* line 501, sass/partials/_game.scss */
+  50% {
+    top: 80px;
+    left: 80px;
+  }
+
+  /* line 502, sass/partials/_game.scss */
+  100% {
+    top: 80px;
+    left: 70px;
+  }
+}
