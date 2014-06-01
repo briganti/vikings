@@ -861,7 +861,7 @@ footer p {
   border-radius: 8px;
 }
 /* line 213, sass/partials/_lobby.scss */
-#lobby-profile-preview img {
+#lobby-profile-preview div, #lobby-profile-preview img {
   height: 100%;
 }
 

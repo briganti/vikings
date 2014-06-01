@@ -4,7 +4,7 @@ angular.module('vikings')
         ['$rootScope', '$scope', '$location', 'Auth', 'Socket', function($rootScope, $scope, $location, Auth, Socket) {
 
             //Get Card by Id in Library
-            $scope.getCardById = function (id) {
+            $scope.getCardById = function(id) {
                 var card;
 
                 for(var i = 0, ln = $scope.libraryCards.length; i < ln; i++) {
@@ -17,7 +17,7 @@ angular.module('vikings')
             }
 
             //Check if Card id is in deck
-            $scope.isCardInDeck = function (id) {
+            $scope.isCardInDeck = function(id) {
                 var card;
 
                 for(var i = 0, ln = $scope.deckCards.length; i < ln; i++) {
@@ -30,7 +30,7 @@ angular.module('vikings')
             }
 
             //Return an array of Card id for saving
-            $scope.getDeckSavedFormat = function () {
+            $scope.getDeckSavedFormat = function() {
                 var result = [],
                     card,
                     id = null;
@@ -48,7 +48,7 @@ angular.module('vikings')
             }
 
             //Save deck
-            $scope.saveDeck = function () {
+            $scope.saveDeck = function() {
                 Socket.emit('library:saveDeck', {
                     deck: $scope.getDeckSavedFormat()
                 });
@@ -58,6 +58,7 @@ angular.module('vikings')
             $scope.libraryPage  = 0;
             $scope.deckCards    = Auth.getDeck();
             $scope.libraryCards = Auth.getLibrary();
+            $scope.hoveredCard  = null;
 
             //For all cards in library
             for(var i = 0, ln = $scope.libraryCards.length; i < ln; i++) {
