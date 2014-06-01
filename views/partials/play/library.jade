@@ -7,38 +7,41 @@ div#lobby-profile(ng-controller="LibraryCtrl")
                 li(ng-show="libraryPage==0")
                     h7 Reds
                     ul
-                        li(ng-repeat='card in libraryCards | filter:{ color: 1 }', cardItem, template="libraryCard", content="card")
+                        li(ng-repeat='card in libraryCards | filter:{ color: 1 }', cardItem, template="libraryCard", content="card", ng-mouseenter="$parent.hoveredCard = card")
 
                 li(ng-show="libraryPage==1")
                     h7 Whites
                     ul
-                        li(ng-repeat='card in libraryCards | filter:{ color: 2 }', cardItem, template="libraryCard", content="card")
+                        li(ng-repeat='card in libraryCards | filter:{ color: 2 }', cardItem, template="libraryCard", content="card", ng-mouseenter="$parent.hoveredCard = card")
                 li(ng-show="libraryPage==2")
                     h7 Blues
                     ul
-                        li(ng-repeat='card in libraryCards | filter:{ color: 3 }', cardItem, template="libraryCard", content="card")
+                        li(ng-repeat='card in libraryCards | filter:{ color: 3 }', cardItem, template="libraryCard", content="card", ng-mouseenter="$parent.hoveredCard = card")
                 li(ng-show="libraryPage==3")
                     h7 Greens
                     ul
-                        li(ng-repeat='card in libraryCards | filter:{ color: 4 }', cardItem, template="libraryCard", content="card")
+                        li(ng-repeat='card in libraryCards | filter:{ color: 4 }', cardItem, template="libraryCard", content="card", ng-mouseenter="$parent.hoveredCard = card")
                 li(ng-show="libraryPage==4")
                     h7 Goldens
                     ul
-                        li(ng-repeat='card in libraryCards | filter:{ color: 0 }', cardItem, template="libraryCard", content="card")
+                        li(ng-repeat='card in libraryCards | filter:{ color: 0 }', cardItem, template="libraryCard", content="card", ng-mouseenter="$parent.hoveredCard = card")
                 li(ng-show="libraryPage==5")
                     h7 Specials
                     ul
-                        li(ng-repeat='card in libraryCards | filter:{ type: "!0" }', cardItem, template="libraryCard", content="card")
+                        li(ng-repeat='card in libraryCards | filter:{ type: "!0" }', cardItem, template="libraryCard", content="card", ng-mouseenter="$parent.hoveredCard = card")
 
             a.prev(ng-click="libraryPage = (6 + libraryPage - 1)%6") <<
             a.next(ng-click="libraryPage = (libraryPage + 1)%6") >>
-            div#lobby-profile-preview
+            div#lobby-profile-preview(ng-switch on="hoveredCard", ng-click="showCard()")
+                div(ng-switch-when="null")
+                div(ng-switch-default, cardItem, template="libraryCard", content="hoveredCard")
+
         div#lobby-profile-deck
             h6 Deck :
             ul
-                li(ng-repeat='(cellId, cardId) in deckCards track by $index', ng-switch on="cardId")
-                    div(ng-switch-when="null", drop="{{$index}}", on-drop="dropAction(cardId, cellId)")
-                    div(ng-switch-default, cardItem, template="deckCard", content="cardId")
+                li(ng-repeat='(cellId, card) in deckCards track by $index', ng-switch on="card")
+                    div(ng-switch-when="null", drop="{{$index}}", on-drop="dropAction(card, cellId)")
+                    div(ng-switch-default, cardItem, template="deckCard", content="card", ng-mouseenter="$parent.$parent.hoveredCard = card")
 
         a#lobby-profile-cancel(href='/play/') Annuler
         button#lobby-profile-save(ng-click="saveDeck()") Sauvegarder le deck
