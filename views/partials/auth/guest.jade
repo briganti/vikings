@@ -1,7 +1,7 @@
 form#login-guest(ng-submit="guest()", name="guestForm", role="form")
-  fieldset
-    label(for="username") Username
-    input(type="text", data-ng-model="username", placeholder="Username", name="username", required, autofocus)
-    p.error
-    button(type="submit", data-ng-disabled="guestForm.$invalid") Jouer
+    fieldset
+        label(for="username") Username
+        input(type="text", data-ng-model="username", placeholder="Username", name="username", required, autofocus)
+        p.error
+        button(type="submit", data-ng-disabled="guestForm.$invalid") Jouer
 

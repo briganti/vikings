@@ -46,6 +46,10 @@ angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap']).
                 url: 'login/',
                 templateUrl: 'auth/login',
                 controller: 'LoginCtrl'
+            }).state('anon.auth.register', {
+                url: 'register/',
+                templateUrl: 'auth/register',
+                controller: 'RegisterCtrl'
             });
 
         // Regular user routes
@@ -131,9 +135,8 @@ angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap']).
         $httpProvider.interceptors.push(function($q, $location) {
             return {
                 'responseError': function(response) {
-                    console.log(response.status);
                     if(response.status === 401 || response.status === 403) {
-                        $location.path('/#nop');
+                        $location.path('/');
                     }
                     return $q.reject(response);
                 }

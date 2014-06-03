@@ -1,8 +1,10 @@
-form(ng-submit="login()", name="loginForm", role="form")
+form(ng-submit="register()", name="registerForm", role="form")
     fieldset
         label(for="username") Username
         input(type="text", data-ng-model="username", placeholder="Username", name="username", required, autofocus)
         label(for="password") Password
         input(type="password", data-ng-model="password", placeholder="Password", name="password", required)
+        label(for="password") Retype password
+        input(type="password", data-ng-model="password2", placeholder="Password", name="password2", required)
         p.error
-        button(type="submit", data-ng-disabled="loginForm.$invalid") Log in
+        button(type="submit", data-ng-disabled="loginForm.$invalid") Register

@@ -57,7 +57,7 @@ angular.module('vikings')
                         password: $scope.password,
                         rememberme: $scope.rememberme
                     },
-                    function(res) {
+                    function() {
                         $location.path('/');
                     },
                     function(err) {
@@ -70,17 +70,20 @@ angular.module('vikings')
 angular.module('vikings')
     .controller('RegisterCtrl',
         ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
-            $scope.role = Auth.userRoles.user;
-            $scope.userRoles = Auth.userRoles;
 
             $scope.register = function() {
                 Auth.register({
-                        username: $scope.username,
-                        password: $scope.password,
-                        role: $scope.role
+                        username  : $scope.username,
+                        password  : $scope.password,
+                        password2 : $scope.password2
                     },
                     function() {
-                        $location.path('/');
+                        if($rootScope.$$phase) {
+                            window.location = '/';
+                        } else {
+                            $location.path('/');
+                            $rootScope.$apply()
+                        }
                     },
                     function(err) {
                         $rootScope.error = err;

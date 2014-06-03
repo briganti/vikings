@@ -45,16 +45,16 @@ angular.module('vikings')
                     success(user);
                 }).error(error);
             },
-            register: function(user, success, error) {
-                $http.post('/register', user).success(function(res) {
-                    changeUser(res);
-                    success();
-                }).error(error);
-            },
             login: function(user, success, error) {
                 $http.post('/login', user).success(function(user){
                     changeUser(user);
                     success(user);
+                }).error(error);
+            },
+            register: function(user, success, error) {
+                $http.post('/auth/register', user).success(function(res) {
+                    changeUser(res);
+                    success();
                 }).error(error);
             },
             logout: function(success, error) {

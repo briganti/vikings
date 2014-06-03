@@ -1,4 +1,5 @@
+.idea
 .sass-cache/
+conf/config.js
 node_modules/
 test/
-.idea
