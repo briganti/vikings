@@ -5,7 +5,7 @@
   "developedBy": "Michael Vial",
   "private": true,
   "scripts": {
-    "start": "node dev/app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "3.*",
@@ -16,16 +16,14 @@
   },
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-compass": "~0.7.0",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-uglify": "~0.2.7",
-    "grunt-preprocess": "~4.0.0",
     "cookie": "~0.1.0",
     "underscore": "~1.6.0",
     "node-uuid": "~1.4.1",
-    "session.socket.io": "~0.1.6"
+    "session.socket.io": "~0.1.6",
+    "mysql": "~2.3.2"
   }
 }
