@@ -109,7 +109,7 @@ auth.loginGuest = function (sessionStore) {
             res.json(200);
 
         } catch(e) {
-            return res.json(200, {"err": e.msg});
+            auth.errorHandler(res, e.msg);
         }
     }
 };

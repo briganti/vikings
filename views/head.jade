@@ -1,22 +1,22 @@
 block app-head
-    div#navbar.navbar.navbar-inverse.navbar-fixed-top
+    div#navbar
         div
-            a.btn.btn-navbar(data-toggle="collapse",data-target=".nav-collapse")
+            a.btn.btn-navbar(toggle="collapse",target=".nav-collapse")
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
             a.brand(href='/') Vikings
             div.nav-collapse.collapse(ng-controller="NavCtrl")
-                ul.nav
-                    li(data-access-level='accessLevels.anon', active-nav='nestedTop')
+                ul
+                    li(access-level='accessLevels.anon', active-nav='nestedTop')
                         a(href='/auth') Log in
-                    li(data-access-level='accessLevels.user', active-nav='nestedTop')
+                    li(access-level='accessLevels.user', active-nav='nestedTop')
                         a(href='/play') Play
                     li
                         a(href='/') Forum
-                form(ng-controller="LoginCtrl", data-access-level='accessLevels.anon')
-                    input(type="text", data-ng-model="username", placeholder="Username", name="username", required)
-                    input(type="password", data-ng-model="password", placeholder="Password", name="password", required)
-                    button(type="submit", ng-click="login()", data-ng-disabled="loginForm.$invalid") login
-                div.pull-right(data-access-level='accessLevels.user')
-                    span(ng-click='logout()') logout
+                form(ng-controller="LoginCtrl", access-level='accessLevels.anon')
+                    input(type="text", ng-model="username", placeholder="Username", name="username", required)
+                    input(type="password", ng-model="password", placeholder="Password", name="password", required)
+                    button(type="submit", ng-click="login()", ng-disabled="loginForm.$invalid") login
+                div.logout(access-level='accessLevels.user')
+                    span(ng-click='logout()') Logout

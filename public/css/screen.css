@@ -328,12 +328,16 @@ footer p {
   text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0;
   color: #555;
 }
-/* line 43, sass/partials/_navbar.scss */
+/* line 42, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse ul li a:hover {
+  color: #ccc;
+}
+/* line 46, sass/partials/_navbar.scss */
 #navbar > div .nav-collapse ul li.active a {
   color: #fff;
   background-color: #111;
 }
-/* line 49, sass/partials/_navbar.scss */
+/* line 52, sass/partials/_navbar.scss */
 #navbar > div .nav-collapse form {
   *zoom: 1;
   max-width: 94%;
@@ -350,7 +354,7 @@ footer p {
   display: table;
   clear: both;
 }
-/* line 52, sass/partials/_navbar.scss */
+/* line 55, sass/partials/_navbar.scss */
 #navbar > div .nav-collapse form input {
   margin-top: 5px;
   height: 30px;
@@ -362,7 +366,7 @@ footer p {
   margin-right: 2.12766%;
   display: inline;
 }
-/* line 58, sass/partials/_navbar.scss */
+/* line 61, sass/partials/_navbar.scss */
 #navbar > div .nav-collapse form button {
   margin-top: 5px;
   height: 30px;
@@ -375,8 +379,8 @@ footer p {
   *margin-left: -2%;
   display: inline;
 }
-/* line 65, sass/partials/_navbar.scss */
-#navbar > div .nav-collapse div.pull-right {
+/* line 68, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse .logout {
   float: right;
   display: block;
   padding: 10px 15px 10px;
@@ -386,6 +390,10 @@ footer p {
   text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0;
   color: #555;
   cursor: pointer;
+}
+/* line 76, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse .logout:hover {
+  color: #ccc;
 }
 
 /* line 1, sass/partials/_home.scss */

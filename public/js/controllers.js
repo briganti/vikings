@@ -27,20 +27,16 @@ angular.module('vikings')
                 Auth.guest({
                         username: $scope.username
                     },
-                    function(res) {
-                        if(res.err) {
-                            $rootScope.error = res.err;
+                    function() {
+                        if($rootScope.$$phase) {
+                            window.location = '/';
                         } else {
-                            if($rootScope.$$phase) {
-                                window.location = '/';
-                            } else {
-                                $location.path('/');
-                                $rootScope.$apply()
-                            }
+                            $location.path('/');
+                            $rootScope.$apply()
                         }
                     },
-                    function(err) {
-                        $rootScope.error = "Failed to login as a guest";
+                    function(e) {
+                        $scope.error = e.error;
                     });
             };
         }]);
