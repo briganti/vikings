@@ -46,7 +46,8 @@ angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap']).
                 url: 'login/',
                 templateUrl: 'auth/login',
                 controller: 'LoginCtrl'
-            }).state('anon.auth.register', {
+            })
+            .state('anon.auth.register', {
                 url: 'register/',
                 templateUrl: 'auth/register',
                 controller: 'RegisterCtrl'

@@ -25,14 +25,14 @@ module.exports = function(app, sessionStore) {
             middleware: [auth.loginGuest(sessionStore)]
         },
         {
+            path: '/auth/login',
+            httpMethod: 'POST',
+            middleware: [auth.loginUser(sessionStore)]
+        },
+        {
             path: '/auth/register',
             httpMethod: 'POST',
             middleware: [auth.registerUser(sessionStore)]
-        },
-        {
-            path: '/login',
-            httpMethod: 'POST',
-            middleware: []
         },
         {
             path: '/logout',

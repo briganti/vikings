@@ -46,7 +46,7 @@ angular.module('vikings')
                 }).error(error);
             },
             login: function(user, success, error) {
-                $http.post('/login', user).success(function(user){
+                $http.post('/auth/login', user).success(function(user){
                     changeUser(user);
                     success(user);
                 }).error(error);

@@ -50,18 +50,21 @@ angular.module('vikings')
     .controller('LoginCtrl',
         ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
 
-            $scope.rememberme = true;
             $scope.login = function() {
                 Auth.login({
-                        username: $scope.username,
-                        password: $scope.password,
-                        rememberme: $scope.rememberme
+                        username : $scope.username,
+                        password : $scope.password
                     },
                     function() {
-                        $location.path('/');
+                        if($rootScope.$$phase) {
+                            window.location = '/';
+                        } else {
+                            $location.path('/');
+                            $rootScope.$apply()
+                        }
                     },
-                    function(err) {
-                        $rootScope.error = "Failed to login";
+                    function(e) {
+                        $scope.error = e.error;
                     });
             };
 

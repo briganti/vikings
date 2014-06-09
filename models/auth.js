@@ -117,21 +117,30 @@ auth.loginGuest = function (sessionStore) {
 /* User login ***********************************************************************************/
 auth.loginUser = function (sessionStore) {
     return function(req, res){
-        var username = req.body.username;
-            pwd      = req.body.password;
+        var username = req.body.username,
+            password = req.body.password;
 
         try {
             auth.checkUsername(sessionStore, username);
-            auth.getUser(username);
+            auth.getUser(username, function(dbUser) {
 
-            var id = uuid.v1();
-            auth.setSessionAndCookie(req, res, id, username, userRoles.user)
+                if(dbUser.length !== 1) {
+                    auth.errorHandler(res, "Username not registered");
+                } else {
+                    var dbUser = dbUser[0];
+                    var cryptedPwd = crypto.createHash('sha1').update(password).digest("hex");
 
-            main.setPlayer(id, username);
-            res.json(200);
-
+                    if(dbUser.pwd === cryptedPwd) {
+                        auth.setSessionAndCookie(req, res, dbUser.id, username, userRoles.user)
+                        main.setPlayer(dbUser.id, username);
+                        res.json(200);
+                    } else {
+                        auth.errorHandler(res, "Username not registered");
+                    }
+                }
+            });
         } catch(e) {
-            return res.json(200, {"err": e.msg});
+            auth.errorHandler(res, e.msg);
         }
     }
 };
@@ -156,7 +165,6 @@ auth.registerUser = function (sessionStore) {
 
                     auth.insertUser(id, username, cryptedPwd, function() {
                         auth.setSessionAndCookie(req, res, id, username, userRoles.user)
-
                         main.setPlayer(id, username);
                         res.json(200);
                     });

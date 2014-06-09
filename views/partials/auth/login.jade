@@ -4,5 +4,5 @@ form(ng-submit="login()", name="loginForm", role="form")
         input(type="text", data-ng-model="username", placeholder="Username", name="username", required, autofocus)
         label(for="password") Password
         input(type="password", data-ng-model="password", placeholder="Password", name="password", required)
-        p.error
+        p.error {{error}}
         button(type="submit", data-ng-disabled="loginForm.$invalid") Log in
