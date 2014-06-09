@@ -15,7 +15,7 @@ mainController.connect = function(socket, session) {
     if(p1.socketID == null) {
         //update socket id
         p1.socketID = socket.id;
-        p1.setAvailable();
+
         //Join main room
         socket.join(main.name);
 

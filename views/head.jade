@@ -14,7 +14,9 @@ block app-head
                         a(href='/play') Play
                     li
                         a(href='/') Forum
-                form.navbar-form.pull-right(data-access-level='accessLevels.anon')
-                    input.span2(type="text",placeholder="Email")
-                    input.span2(type="password",placeholder="Password")
-                    button.btn(type="submit") Sign in
+                form(ng-controller="LoginCtrl", data-access-level='accessLevels.anon')
+                    input(type="text", data-ng-model="username", placeholder="Username", name="username", required)
+                    input(type="password", data-ng-model="password", placeholder="Password", name="password", required)
+                    button(type="submit", ng-click="login()", data-ng-disabled="loginForm.$invalid") login
+                div.pull-right(data-access-level='accessLevels.user')
+                    span(ng-click='logout()') logout

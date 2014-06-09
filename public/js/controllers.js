@@ -21,8 +21,8 @@ angular.module('vikings')
 angular.module('vikings')
     .controller('GuestCtrl',
         ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
+            $scope.error = '';
 
-            $scope.rememberme = true;
             $scope.guest = function() {
                 Auth.guest({
                         username: $scope.username
@@ -49,6 +49,7 @@ angular.module('vikings')
 angular.module('vikings')
     .controller('LoginCtrl',
         ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
+            $scope.error = '';
 
             $scope.login = function() {
                 Auth.login({
@@ -73,6 +74,7 @@ angular.module('vikings')
 angular.module('vikings')
     .controller('RegisterCtrl',
         ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+            $scope.error = '';
 
             $scope.register = function() {
                 Auth.register({

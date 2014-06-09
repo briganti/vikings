@@ -375,6 +375,18 @@ footer p {
   *margin-left: -2%;
   display: inline;
 }
+/* line 65, sass/partials/_navbar.scss */
+#navbar > div .nav-collapse div.pull-right {
+  float: right;
+  display: block;
+  padding: 10px 15px 10px;
+  -webkit-box-shadow: rgba(0, 3, 8, 0.125) 0px 1px 10px inset;
+  -moz-box-shadow: rgba(0, 3, 8, 0.125) 0px 1px 10px inset;
+  box-shadow: rgba(0, 3, 8, 0.125) 0px 1px 10px inset;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0;
+  color: #555;
+  cursor: pointer;
+}
 
 /* line 1, sass/partials/_home.scss */
 #hp-carousel {

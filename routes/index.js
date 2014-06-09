@@ -18,7 +18,7 @@ module.exports = function(app, sessionStore) {
                 res.render(requestedView);
             }]
         },
-        // Local Auth
+        // Authentification
         {
             path: '/auth/guest',
             httpMethod: 'POST',
@@ -37,7 +37,17 @@ module.exports = function(app, sessionStore) {
         {
             path: '/logout',
             httpMethod: 'POST',
-            middleware: [/*AuthCtrl.logout*/]
+            middleware: [function(req, res) {
+
+                req.session.destroy();
+                res.cookie('user', JSON.stringify({
+                    'id'  : '',
+                    'name': '',
+                    'role': userRoles.public
+                }));
+
+                res.redirect('/');
+            }]
         },
 
         // User resource
@@ -102,6 +112,5 @@ module.exports = function(app, sessionStore) {
         if(!(accessLevel.bitMask & role.bitMask)) return res.send(403);
         return next();
     }
-
 }
 
