@@ -6,5 +6,5 @@ form(ng-submit="register()", name="registerForm", role="form")
         input(type="password", data-ng-model="password", placeholder="Password", name="password", required)
         label(for="password") Retype password
         input(type="password", data-ng-model="password2", placeholder="Password", name="password2", required)
-        p.error
+        p.error {{error}}
         button(type="submit", data-ng-disabled="loginForm.$invalid") Register

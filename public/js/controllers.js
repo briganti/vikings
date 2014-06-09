@@ -85,8 +85,8 @@ angular.module('vikings')
                             $rootScope.$apply()
                         }
                     },
-                    function(err) {
-                        $rootScope.error = err;
+                    function(e) {
+                        $scope.error = e.error;
                     });
             };
         }]);

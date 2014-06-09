@@ -82,13 +82,17 @@ auth.insertUser = function (id, username, password, Callback) {
     var query = "INSERT INTO users (uuid, name, pwd) VALUES ('"+id+"', '"+username+"', '"+password+"');";
 
     auth.db.query(query, function(err, rows){
-        console.log(err);
         if(err)	{
             throw err;
         }
         Callback(rows);
     });
 };
+
+/* Error Handler ********************************************************************************/
+auth.errorHandler =  function(res, error) {
+    res.json(400, {"error": error})
+}
 
 /* Guest login **********************************************************************************/
 auth.loginGuest = function (sessionStore) {
@@ -145,21 +149,21 @@ auth.registerUser = function (sessionStore) {
             auth.getUser(username, function(dbUser) {
 
                 if(dbUser.length > 0) {
-                    throw {msg : "Username already used by someone else"};
+                    auth.errorHandler(res, "Username already used by someone else");
+                } else {
+                    var id = uuid.v1();
+                    var cryptedPwd = crypto.createHash('sha1').update(password).digest("hex");
+
+                    auth.insertUser(id, username, cryptedPwd, function() {
+                        auth.setSessionAndCookie(req, res, id, username, userRoles.user)
+
+                        main.setPlayer(id, username);
+                        res.json(200);
+                    });
                 }
-
-                var id = uuid.v1();
-                var cryptedPwd = crypto.createHash('sha1').update(password).digest("hex");
-
-                auth.insertUser(id, username, cryptedPwd, function() {
-                    auth.setSessionAndCookie(req, res, id, username, userRoles.user)
-
-                    main.setPlayer(id, username);
-                    res.json(200);
-                });
             });
         } catch(e) {
-            return res.json(200, {"err": e.msg});
+            auth.errorHandler(res, e.msg);
         }
     }
 };
