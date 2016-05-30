@@ -8,7 +8,7 @@ var express        = require('express'),
     server         = require('http').createServer(app),
     io             = require('socket.io').listen(server),
     path           = require('path'),
-    port           = process.env.PORT || 61337,
+    port           = process.env.PORT || 8080,
     sessionStore   = new connect.middleware.session.MemoryStore(),
     sessionSecret  = "some private string",
     cookieParser   = express.cookieParser(sessionSecret),
@@ -21,7 +21,7 @@ app.configure(function () {
     app.set('port',  port);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
-    app.use(express.static(path.join(__dirname, 'client')));
+    app.use(express.static(path.join(__dirname, 'public')));
     app.use(express.methodOverride());
 
     app.use(express.favicon());
