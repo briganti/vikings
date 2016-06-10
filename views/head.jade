@@ -12,8 +12,8 @@ block app-head
                         a(href='/auth') Log in
                     li(data-access-level='accessLevels.user', active-nav='nestedTop')
                         a(href='/play') Play
-                    li
-                        a(href='/') Forum
+                    li(data-access-level='accessLevels.user', active-nav='nestedTop', ng-click="logout()")
+                        a(href='/logout') Log out
                 form.navbar-form.pull-right(data-access-level='accessLevels.anon')
                     input.span2(type="text",placeholder="Email")
                     input.span2(type="password",placeholder="Password")

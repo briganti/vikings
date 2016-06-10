@@ -1,153 +1,147 @@
 /**
  * Module dependencies.
  */
-var main = require('../models/main.js');
+const main = require('../models/main.js')
 
-
-var gameController = {};
-
+const gameController = {}
 
 /* Create a new game ****************************************************************************/
-gameController.createGame = function(socket, session, data) {
-    var p = main.getPlayer(session.user.id);
+gameController.createGame = (socket, session, data) => {
+  const p = main.getPlayer(session.user.id)
 
-    //Player is not in play
-    if (p && p.isAvailable()) {
+  // Player is not in play
+  if (p && p.isAvailable()) {
+    // Create a new game
+    const g = main.setGame(data.name)
+    // Add player to game
+    g.setPlayer(p.id, p.name, p.deck, p.socketID)
+    p.setPlaying(g.id)
 
-        // Create a new game
-        var g = main.setGame(data.name);
-        //Add player to game
-        g.setPlayer(p.id, p.name, p.deck, p.socketID);
-        p.setPlaying(g.id);
+    // quit main chat and join game chat
+    socket
+      .leave(main.name)
+      .join(g.id)
 
-        //quit main chat and join game chat
-        socket.leave(main.name)
-            .join(g.id);
-
-        //Update game list for other players
-        socket.broadcast.to(main.name).emit('lobby:gamelist',{gamelist:main.getPublicGamelist()});
-        //Send Player Connection Succed + Player list + table list
-        socket.emit('waitingGame');
-    }
-};
-
+    // Update game list for other players
+    socket.broadcast.to(main.name).emit('lobby:gamelist', { gamelist: main.getPublicGamelist() })
+    // Send Player Connection Succed + Player list + table list
+    socket.emit('waitingGame')
+  }
+}
 
 /* Game - User join game ************************************************************************/
-gameController.joinGame = function(io, socket, session, data) {
-    var g = main.getGame(data.gameId);
+gameController.joinGame = (io, socket, session, data) => {
+  const g = main.getGame(data.gameId)
 
-    if(g.isAvailable()) {
-        //Get player
-        var p = main.getPlayer(session.user.id);
-        g.setPlayer(p.id, p.name, p.deck, p.socketID);
-        p.setPlaying(g.id);
-        g.setPlaying();
+  if (g.isAvailable()) {
+    // Get player
+    const p = main.getPlayer(session.user.id)
+    g.setPlayer(p.id, p.name, p.deck, p.socketID)
+    p.setPlaying(g.id)
+    g.setPlaying()
 
-        socket.leave(main.name)
-            .join(g.id);
+    socket
+      .leave(main.name)
+      .join(g.id)
 
-        //Update game list for other players
-        socket.broadcast.to(main.name).emit('lobby:gamelist',{gamelist:main.getPublicGamelist()});
+    // Update game list for other players
+    socket.broadcast.to(main.name).emit('lobby:gamelist', { gamelist: main.getPublicGamelist() })
 
-        //Start Game for players
-        io.sockets.socket(g.player[0].socketID).emit('game:start',{gameId:g.id});
-        io.sockets.socket(g.player[1].socketID).emit('game:start',{gameId:g.id});
-    }
-};
+    // Start Game for players
+    io.to(g.player[0].socketID).emit('game:start', { gameId: g.id })
+    io.to(g.player[1].socketID).emit('game:start', { gameId: g.id })
+  }
+}
 
+/* Game - Get game information ******************************************************************/
+gameController.getGameInfo = (socket, session, data) => {
+  const g = main.getGame(data.gameId)
 
-/* Game - Get game information ************************************************************************/
-gameController.getGameInfo = function(socket, session, data) {
-    var g = main.getGame(data.gameId);
-
-    if(g.isPlaying()) {
-        //Get player
-        var p = main.getPlayer(session.user.id);
-        socket.emit('game:info',{game:g.exportGame(g.getPlayer(p.id))});
-    }
-};
+  if (g.isPlaying()) {
+    // Get player
+    const p = main.getPlayer(session.user.id)
+    socket.emit('game:info', { game: g.exportGame(g.getPlayer(p.id)) })
+  }
+}
 
 /* Game - User quit game ************************************************************************/
-gameController.quitGame = function(socket, session) {
-    var p = main.getPlayer(session.user.id);
+gameController.quitGame = (socket, session) => {
+  const p = main.getPlayer(session.user.id)
 
-    if(p && p.isPlaying()){
-        //get game
-        var g = main.getGame(p.gameID);
+  if (p && p.isPlaying()) {
+    // get game
+    const g = main.getGame(p.gameID)
 
-        //re-init player
-        p.setAvailable();
+    // re-init player
+    p.setAvailable()
 
-        socket.leave(g.id);
-        socket.join(main.name);
+    socket.leave(g.id)
+    socket.join(main.name)
 
-        //Remove Player from Game & destroy if game is empty
-        if(g.removePlayer(p.id)) {
-            main.removeGame(g.id);
-        } else {
-            socket.broadcast.to(g.id).emit('game:opponentleft');
-        }
-
-        //Update game list
-        socket.broadcast.to(main.name).emit('lobby:gamelist',{games:main.getPublicGamelist()});
+    // Remove Player from Game & destroy if game is empty
+    if (g.removePlayer(p.id)) {
+      main.removeGame(g.id)
+    } else {
+      socket.broadcast.to(g.id).emit('game:opponentleft')
     }
-};
 
+    // Update game list
+    socket.broadcast.to(main.name).emit('lobby:gamelist', { games: main.getPublicGamelist() })
+  }
+}
 
 /* Game - Phase 0 *******************************************************************************/
-gameController.phase0Game = function(io, socket, session, data) {
-    //get player & game
-    var p = main.getPlayer(session.user.id);
-    var g = main.getGame(p.gameID);
+gameController.phase0Game = (io, socket, session, data) => {
+  // get player & game
+  const p = main.getPlayer(session.user.id)
+  const g = main.getGame(p.gameID)
 
-    g.setPhase0(p.id, data);
+  g.setPhase0(p.id, data)
 
-    //Update Game for Player 1
-    io.sockets.socket(g.player[0].socketID).emit('game:info',{game:g.exportGame(0)})
-    //Update Game for Player 2
-    io.sockets.socket(g.player[1].socketID).emit('game:info',{game:g.exportGame(1)});
-};
-
+  // Update Game for Player 1
+  io.to(g.player[0].socketID).emit('game:info', { game: g.exportGame(0) })
+  // Update Game for Player 2
+  io.to(g.player[1].socketID).emit('game:info', { game: g.exportGame(1) })
+}
 
 /* Game - Phase 1 *******************************************************************************/
-gameController.phase1Game = function(io, socket, session, data) {
-    //get player & game
-    var p = main.getPlayer(session.user.id);
-    var g = main.getGame(p.gameID);
+gameController.phase1Game = (io, socket, session, data) => {
+  // get player & game
+  const p = main.getPlayer(session.user.id)
+  const g = main.getGame(p.gameID)
 
-    g.setPhase1(p.id, data);
+  g.setPhase1(p.id, data)
 
-    //Update Game for Player 1
-    io.sockets.socket(g.player[0].socketID).emit('game:info',{game:g.exportGame(0)});
-    //Update Game for Player 2
-    io.sockets.socket(g.player[1].socketID).emit('game:info',{game:g.exportGame(1)});
-};
+  // Update Game for Player 1
+  io.to(g.player[0].socketID).emit('game:info', { game: g.exportGame(0) })
+  // Update Game for Player 2
+  io.to(g.player[1].socketID).emit('game:info', { game: g.exportGame(1) })
+}
 
 
 /* Game - Phase 2 *******************************************************************************/
-gameController.phase2Game = function(io, socket, session, data) {
-    //get player & game
-    var p = main.getPlayer(session.user.id);
-    var g = main.getGame(p.gameID);
+gameController.phase2Game = (io, socket, session, data) => {
+  // get player & game
+  const p = main.getPlayer(session.user.id)
+  const g = main.getGame(p.gameID)
 
-    g.setPhase2(p.id, data);
+  g.setPhase2(p.id, data)
 
-    //Update Game for Player 1
-    io.sockets.socket(g.player[0].socketID).emit('game:info',{game:g.exportGame(0)});
-    //Update Game for Player 2
-    io.sockets.socket(g.player[1].socketID).emit('game:info',{game:g.exportGame(1)});
+  // Update Game for Player 1
+  io.to(g.player[0].socketID).emit('game:info', { game: g.exportGame(0) })
+  // Update Game for Player 2
+  io.to(g.player[1].socketID).emit('game:info', { game: g.exportGame(1) })
 
-    //Game over
-    if(g.isGameOver()) {
-        var gameWinner = g.getWinner();
-        var gameLoser  = (gameWinner+1)%2;
+  // Game over
+  if (g.isGameOver()) {
+    const gameWinner = g.getWinner()
+    const gameLoser  = (gameWinner + 1) % 2
 
-        var winnerCard = main.getPlayer(g.player[gameWinner].id).getAPrice();
+    const winnerCard = main.getPlayer(g.player[gameWinner].id).getAPrice()
 
-        io.sockets.socket(g.player[gameWinner].socketID).emit('game:win',{gift:winnerCard});
-        io.sockets.socket(g.player[gameLoser].socketID).emit('game:lose');
-    }
-};
+    io.to(g.player[gameWinner].socketID).emit('game:win', { gift: winnerCard })
+    io.to(g.player[gameLoser].socketID).emit('game:lose')
+  }
+}
 
-
-module.exports = gameController;
+module.exports = gameController

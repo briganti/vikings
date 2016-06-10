@@ -1,108 +1,105 @@
-/**
- * Module dependencies.
- */
-var player   = require('./player.js');
-var game     = require('./game.js');
-var utility  = require('./utility.js');
-var uuid     = require('node-uuid');
+const Player = require('./player.js')
+const Game   = require('./game.js')
+const uuid   = require('node-uuid')
 
-/**
- * Constructor
- */
-var main = {
-    name    : 'lobby',
-    players : [],
-    games   : []
-};
+class Main {
 
-/* Create a player ******************************************************************************/
-main.setPlayer = function(id, name) {
-    var p = new player(id, name);
-    this.players.push(p);
-};
+  constructor() {
+    this.name = 'lobby'
+    this.players = []
+    this.games = []
+  }
 
-/* Get a player *********************************************************************************/
-main.getPlayer = function(id) {
-    //For all stored player
-    for(var i = 0; i < this.players.length; i++){
-        //found
-		if(this.players[i].id == id){
-			return this.players[i];
-		}
-	}
-    return false;
-};
-/* remove a player ******************************************************************************/
-main.removePlayer = function(id) {
-    //For all stored players
-    for(var i = 0; i < this.players.length; i++){
-        //found
-        if(this.players[i].id == id){
-            this.players.remove(i);
-        }
+  /* Create a player **************************************************************************/
+  setPlayer(id, name) {
+    const p = new Player(id, name)
+    this.players.push(p)
+  }
+
+  /* Get a player *****************************************************************************/
+  getPlayer(id) {
+    // For all stored player
+    for (let i = 0; i < this.players.length; i++) {
+      // found
+      if (this.players[i].id === id) {
+        return this.players[i]
+      }
     }
-};
+    return false
+  }
 
-/* Get public player list ***********************************************************************/
-main.getPublicPlayerList = function() {
-    var p, result = [];
-    //For all stored players
-    for(var i = 0; i < this.players.length; i++){
-        p = this.players[i];
-        //found
-        if(p && (p.isAvailable()) || p.isPlaying()) {
-            result.push(p.getPublicProfile());
-        }
+  /* remove a player **************************************************************************/
+  removePlayer(id) {
+    // For all stored players
+    for (let i = 0; i < this.players.length; i++) {
+      // found
+      if (this.players[i].id === id) {
+        this.players.splice(i, 1)
+      }
     }
-    return result;
-};
+  }
 
-/* Create a new game ****************************************************************************/
-main.setGame = function(name) {
-    var g = new game(uuid.v1(), name);
-    this.games.push(g);
-
-    return g;
-};
-
-/* Remove game from list ************************************************************************/
-main.removeGame = function(id) {
-    //For all stored games
-    for(var i = 0; i < this.games.length; i++){
-        //found
-        if(this.games[i].id == id){
-            this.games.remove(i);
-        }
+  /* Get public player list *******************************************************************/
+  getPublicPlayerList() {
+    const result = []
+    // For all stored players
+    for (let i = 0; i < this.players.length; i++) {
+      const p = this.players[i]
+      // found
+      if (p && (p.isAvailable()) || p.isPlaying()) {
+        result.push(p.getPublicProfile())
+      }
     }
-};
+    return result
+  }
 
-/* Get game by id *******************************************************************************/
-main.getGame = function(gameId) {
-    //For all stored games
-    for(var i = 0; i < this.games.length; i++){
-        //found
-        if(this.games[i].id == gameId){
-            return this.games[i];
-        }
+  /* Create a new game ************************************************************************/
+  setGame(name) {
+    const g = new Game(uuid.v1(), name)
+    this.games.push(g)
+
+    return g
+  }
+
+  /* Remove game from list ********************************************************************/
+  removeGame(id) {
+    // For all stored games
+    for (let i = 0; i < this.games.length; i++) {
+      // found
+      if (this.games[i].id === id) {
+        this.games.splice(i, 1)
+      }
     }
-    return false;
-};
+  }
 
-/* Get public game list *************************************************************************/
-main.getPublicGamelist = function() {
-    var list = [];
-    for(var i = 0; i < this.games.length; i++){
-        if(this.games[i].status != 'over') {
-            list.push({
-                id    : this.games[i].id,
-                name  : this.games[i].name,
-                p1    : this.games[i].player[0].id,
-                p2    : this.games[i].player[1].id,
-                state : this.games[i].status
-            });
-        }
+  /* Get game by id ***************************************************************************/
+  getGame(gameId) {
+    // For all stored games
+    for (let i = 0; i < this.games.length; i++) {
+      // found
+      if (this.games[i].id === gameId) {
+        return this.games[i]
+      }
     }
-    return list;
-};
+    return false
+  }
 
-module.exports = main;
+  /* Get public game list *********************************************************************/
+  getPublicGamelist() {
+    const list = []
+    for (let i = 0; i < this.games.length; i++) {
+      if (this.games[i].status !== 'over') {
+        list.push({
+          id:    this.games[i].id,
+          name:  this.games[i].name,
+          p1:    this.games[i].player[0].id,
+          p2:    this.games[i].player[1].id,
+          state: this.games[i].status,
+        })
+      }
+    }
+    return list
+  }
+}
+
+module.exports = new Main()

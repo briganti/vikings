@@ -1,105 +1,94 @@
-/**
- * Module dependencies.
- */
-var express        = require('express'),
-    connect        = require('connect'),
-    cookie         = require('cookie'),
-    app            = express(),
-    server         = require('http').createServer(app),
-    io             = require('socket.io').listen(server),
-    path           = require('path'),
-    port           = process.env.PORT || 8080,
-    sessionStore   = new connect.middleware.session.MemoryStore(),
-    sessionSecret  = "some private string",
-    cookieParser   = express.cookieParser(sessionSecret),
-    SessionSockets = require('session.socket.io'),
-    sessionSockets = new SessionSockets(io, sessionStore, cookieParser);
+const express        = require('express')
+const path           = require('path')
+const expressSession = require('express-session')
+const redis          = require('redis')
+const RedisStore     = require('connect-redis')(expressSession)
+const bodyParser     = require('body-parser')
 
+// We're stuck with bluebird promises until
+// https://github.com/NodeRedis/node_redis/issues/864 is resolved
+const Promise = require('bluebird')
+Promise.promisifyAll(redis.RedisClient.prototype)
+Promise.promisifyAll(redis.Multi.prototype)
 
-// configure express
-app.configure(function () {
-    app.set('port',  port);
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    app.use(express.static(path.join(__dirname, 'public')));
-    app.use(express.methodOverride());
+const app    = express()
+const server = require('http').createServer(app)
+const io     = require('socket.io')(server)
+const ios    = require('socket.io-express-session')
 
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(cookieParser);
+const port = process.env.PORT || 8080
 
-    app.use(express.session({"store": sessionStore }));
-    app.use(express.json());
-    app.use(express.urlencoded());
+const routing  = require('./routes/index.js')
+const mainCtrl = require('./controllers/main.js')
+const gameCtrl = require('./controllers/game.js')
 
-    app.use(app.router);
-});
-
-/**
- * Routing
- */
-require('./routes/index.js')(app, sessionStore);
-
-
-/**
- * Configure Sockets
- */
-io.set('log level', 2);
-io.set('transports', [ 'websocket', 'xhr-polling' ]);
-//io.set('close timeout', 10);
-
-io.set('authorization', function (handshakeData, callback) {
-    if (handshakeData.headers.cookie) {
-        // Read cookies from handshake headers
-        var cookies = cookie.parse(handshakeData.headers.cookie);
-        // We're now able to retrieve session ID
-        var sessionID;
-        if (cookies['connect.sid'])
-            sessionID = connect.utils.parseSignedCookie(cookies['connect.sid'], sessionSecret);
-        // No session? Refuse connection
-        if (!sessionID) {
-            callback('No session', false);
-        } else {
-            // On récupère la session utilisateur, et on en extrait son username
-            sessionStore.get(sessionID, function (err, session) {
-                if (!err && session && session.user) {
-                    // OK, on accepte la connexion
-                    callback(null, true);
-                } else {
-                    // Session incomplète, ou non trouvée
-                    callback(err || 'User not authenticated', false);
-                }
-            });
-        }
+// Redis client
+const redisInit = () => {
+  const client = redis.createClient('6379', 'redis')
+  return client.getAsync('ready')
+    .then(() => {
+      return Promise.resolve(client)
     }
-});
+  )
+}
 
+// Once redis init
+redisInit().then((client) => {
+  const session = expressSession({
+    store:             new RedisStore({ client }),
+    rolling:           true,
+    secret:            'keyboard cat',
+    resave:            true,
+    saveUninitialized: false,
+    unset:             'destroy',
+    cookie:            { maxAge: 60 * 5 * 1000 }, // 5 minutes until session is destroyed
+  })
 
-//Game controller
-var mainCtrl  = require('./controllers/main.js'),
-    gameCtrl  = require('./controllers/game.js');
+  io.use(ios(session))
 
-sessionSockets.on('connection', function(err, socket, session){
-    mainCtrl.connect(socket, session);
+  // Express middlewares
+  app.use(session)
+  app.set('port', port)
+  app.set('views', `${__dirname}/views`)
+  app.set('view engine', 'jade')
+  // for parsing application/json
+  app.use(bodyParser.json())
+  // for parsing application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(express.static(path.join(__dirname, 'public')))
+
+  // Routing
+  app.use('/', routing)
+  // routing(app, client)
+
+  // Socket handling
+  io.on('connection', (socket) => {
+    const socketSession = socket.handshake.session
+
+    mainCtrl.connect(socket, socketSession)
 
     // Main
-    socket.on('disconnect',        function()    { mainCtrl.disconnect(socket, session); });
-    socket.on('chat:sendMessage',  function(data){ mainCtrl.chatSendMessage(socket, session, data); });
-    socket.on('lobby:getGameList', function()    { mainCtrl.lobbyGetGameList(socket); });
-    socket.on('library:get',       function()    { mainCtrl.libraryGet(socket, session); });
-    socket.on('library:saveDeck',  function(data){ mainCtrl.librarySaveDeck(socket, session, data); });
+    socket.on('disconnect',            () => { mainCtrl.disconnect(socket, socketSession) })
+    socket.on('chat:sendMessage',  (data) => {
+      mainCtrl.chatSendMessage(socket, socketSession, data)
+    })
+    socket.on('lobby:getGameList',     () => { mainCtrl.lobbyGetGameList(socket) })
+    socket.on('library:get',           () => { mainCtrl.libraryGet(socket, socketSession) })
+    socket.on('library:saveDeck',  (data) => {
+      mainCtrl.librarySaveDeck(socket, socketSession, data)
+    })
 
-    //Game
-    socket.on('game:create',  function(data){ gameCtrl.createGame(socket, session, data); });
-    socket.on('game:join',    function(data){ gameCtrl.joinGame(io, socket, session, data); });
-    socket.on('game:info',    function(data){ gameCtrl.getGameInfo(socket, session, data); });
-    socket.on('game:quit',    function()    { gameCtrl.quitGame(socket, session); });
-    socket.on('game:phase0',  function(data){ gameCtrl.phase0Game(io, socket, session, data); });
-    socket.on('game:phase1',  function(data){ gameCtrl.phase1Game(io, socket, session, data); });
-    socket.on('game:phase2',  function(data){ gameCtrl.phase2Game(io, socket, session, data); });
-});
+    // Game
+    socket.on('game:create', (data) => { gameCtrl.createGame(socket, socketSession, data) })
+    socket.on('game:join',   (data) => { gameCtrl.joinGame(io, socket, socketSession, data) })
+    socket.on('game:info',   (data) => { gameCtrl.getGameInfo(socket, socketSession, data) })
+    socket.on('game:quit',       () => { gameCtrl.quitGame(socket, socketSession) })
+    socket.on('game:phase0', (data) => { gameCtrl.phase0Game(io, socket, socketSession, data) })
+    socket.on('game:phase1', (data) => { gameCtrl.phase1Game(io, socket, socketSession, data) })
+    socket.on('game:phase2', (data) => { gameCtrl.phase2Game(io, socket, socketSession, data) })
+  })
 
+  server.listen(port)
+})
 
-//launch server
-server.listen(port);
-console.log('Express server listening on port ' + port);
+console.log(`Express server listening on port ${port}`)

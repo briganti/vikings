@@ -77,6 +77,10 @@ angular.module('vikings', ['ngCookies', 'ui.router', 'ui.bootstrap']).
             .state('user.play.game', {
                 url: 'game/:gameId',
                 templateUrl: 'play/game'
+            })
+            .state('user.logout', {
+                url: '/logout',
+                templateUrl: 'home'
             });
 
         // Admin routes
