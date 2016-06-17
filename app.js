@@ -4,6 +4,7 @@ const expressSession = require('express-session')
 const redis          = require('redis')
 const RedisStore     = require('connect-redis')(expressSession)
 const bodyParser     = require('body-parser')
+const config         = require('./config.js')
 
 // We're stuck with bluebird promises until
 // https://github.com/NodeRedis/node_redis/issues/864 is resolved
@@ -16,7 +17,7 @@ const server = require('http').createServer(app)
 const io     = require('socket.io')(server)
 const ios    = require('socket.io-express-session')
 
-const port = process.env.PORT || 8080
+const port = config.node_port
 
 const routing  = require('./routes/index.js')
 const mainCtrl = require('./controllers/main.js')
@@ -24,7 +25,7 @@ const gameCtrl = require('./controllers/game.js')
 
 // Redis client
 const redisInit = () => {
-  const client = redis.createClient('6379', 'redis')
+  const client = redis.createClient(config.redis_port, config.redis_host)
   return client.getAsync('ready')
     .then(() => {
       return Promise.resolve(client)
