@@ -33,6 +33,10 @@ class Game {
   }
 
   /** Over **/
+  isOver() {
+    return this.status === 'over'
+  }
+
   setOver() {
     this.status = 'over'
   }
@@ -75,7 +79,6 @@ class Game {
     // game can be destroyed ?
     return (this.player[0].id === null && this.player[1].id === null)
   }
-
 
   /* Game - Get Card key from deck ****************************************************************/
   getCardKeyFromDeck(pI, id) {

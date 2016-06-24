@@ -78,15 +78,18 @@ gameController.quitGame = (socket, session) => {
     socket.leave(g.id)
     socket.join(main.name)
 
-    // Remove Player from Game & destroy if game is empty
-    if (g.removePlayer(p.id)) {
+    // Remove Player from Game
+    g.removePlayer(p.id)
+
+    // destroy if game is empty
+    if (g.isOver()) {
       main.removeGame(g.id)
     } else {
       socket.broadcast.to(g.id).emit('game:opponentleft')
     }
 
     // Update game list
-    socket.broadcast.to(main.name).emit('lobby:gamelist', { games: main.getPublicGamelist() })
+    socket.broadcast.to(main.name).emit('lobby:gamelist', { gamelist: main.getPublicGamelist() })
   }
 }
 
